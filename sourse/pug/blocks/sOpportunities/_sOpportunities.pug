@@ -1,0 +1,65 @@
+mixin sOpportunities(data)
+	// start sOpportunities
+	+b.SECTION.sOpportunities.section#sOpportunities&attributes(attributes)
+		+e.container.container
+			//-+e.pen
+			+pic('pen.png').sOpportunities__pen.d-none.d-xxl-flex
+			+b.section-title.text-center
+				h2 Возможности
+			+e.slider-wrap
+				.swiper-container.sOpportunities-slider-js
+					.swiper-wrapper
+						+sOpportunitiesItem(1, 'Торговля')
+							li Оптовая торговля
+							li Автоматизация розницы
+							li Интернет-торговля
+						+sOpportunitiesItem(2, 'Услуги')
+							li Сфера услуг
+							li Управление доставкой
+						+sOpportunitiesItem(3, 'Розничные продажи')
+							li Поддержка 54-ФЗ
+							li Рабочее место кассира
+							li Поддержка POS
+						+sOpportunitiesItem(4, 'Производство')
+							li Учет и производство
+							li Контроль и анализ
+							li Планирование
+						+sOpportunitiesItem(5, 'Закупки')
+							li Пополнение запасов
+							li Учет закупок
+							li Контроль, анализ, планирование
+						+sOpportunitiesItem(6, 'Склад')
+							li Поступления и реализация запасов
+							li Инвентаризация
+							li Отчеты по складу
+						+sOpportunitiesItem(7, 'CRM')
+							li Управление продажами
+							li Карточка клиента
+							li Воронка продаж
+						+sOpportunitiesItem(8, 'Маркировка')
+							li Поддерживаемые товары
+							li Участники маркировки
+						+sOpportunitiesItem(9, 'Отчетность и налоги')
+							li Отчетность ИП на УСН/ЕНВД
+							li ИП на патенте
+							li Сдача отчетности
+					//-+e.control-wrap.d-sm-none
+						+arrow
+			.text-center
+				+e.get-btn(href='#') Получить 30 дней бесплатно
+	// end sOpportunities
+		
+mixin sOpportunitiesItem(imgNum, title)
+	.swiper-slide
+		+e.item
+			+e.row.row.align-items-center
+				.col-auto
+					+e.img(href='#')
+						img(loading="lazy" src=`img/svg/opportunities-${imgNum}.svg` alt="")
+				.col
+					+e.title(href='#')=title
+					if block
+						+e.list
+							ul
+								block
+					+e.btn(href='#') Подробнее

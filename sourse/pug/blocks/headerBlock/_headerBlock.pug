@@ -1,10 +1,35 @@
 mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.section#headerBlock&attributes(attributes)
-		.container
-			+b.section-title.text-center
-				h2 headerBlock ds dfsdfdsfsd
-
-			.row
-						
+		+pic('headerBl-bg-1.png')(class="headerBlock__bg headerBlock__bg--1 d-none d-xxl-block")
+		+pic('headerBl-bg-2.png')(class="headerBlock__bg headerBlock__bg--2 d-none d-xxl-block")
+		+e.container.container
+			+e.row.row
+				.col-lg-7.col-xl-6
+					+b.section-title.text-center.text-lg-start
+						+e.red.typeit-red-js Бесплатная доставка, установка, гарантия и бонусы
+						h1 1С: Управление нашей фирмой 8 В Самаре
+						p Поработайте в программе 1C:УНФ 8 целый месяц бесплатно, получив полный доступ к программе
+					+e.btns-row.row.justify-content-center.justify-content-lg-start
+						.col-6.col-md-auto
+							+e.btn--buy(href='#') Купить
+						.col-6.col-md-auto
+							+e.btn--trail(href='#') 30 дней бесплатно
+			+e.pills-wrap
+				+pic('headerBl-woman.png', undefined, 0)(class="headerBlock__woman")
+				+e.pills-row.row
+					+headerBlockPill(1, 'Производственные компании')
+					+headerBlockPill(2, 'Интернет-торговля')
+					+headerBlockPill(3, 'Розничные и оптовые продажи')
+					+headerBlockPill(4, 'Сфера услуг')
 	// end headerBlock
+
+mixin headerBlockPill(imgNum, name)
+	.col-6.col-lg-3
+		+e.pill.sidebar-item-js(href='#')
+			+e.content
+				+e.ball.sidebar-ball-js
+				+e.img
+					img(loading="lazy" src=`img/svg/headerbl-${imgNum}.svg` alt="")
+				+e.name=name
+				+e.tracker.sidebar-trakcer-js

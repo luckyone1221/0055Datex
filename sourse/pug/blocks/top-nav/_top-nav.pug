@@ -1,30 +1,40 @@
-mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
-	+b.menu-mobile--js.d-lg-none
-		+b.toggle-menu-mobile--js.on
-			span
-		+e.inner
-		
-			+mnu()
-			.text-right
-	//  мобильное меню
-mixin top-nav() 
+mixin top-nav()
 	// start top-nav
 	+b.top-nav.block-with-lazy
-		.container
-			.row
-				.col-auto.d-lg-none
-					+b.toggle-menu-mobile--js
+		+e.container.container-fluid
+			+e.row.row.align-items-center
+				.col
+					+e.sub-row.row.align-items-center
+						.col-auto
+							+e.logo(href='#')
+								img(loading="lazy" src="img/svg/logo.svg" alt="")
+						.col.d-none.d-lg-block
+							+e.descr Официальный партнер 1С в Самаре
+				.col-auto
+					+e.soc-row.row
+						+socItem('vb')
+						+socItem('wa')
+						+socItem('tg')
+				.col-auto.d-md-none
+					+e.mob-call(href='tel:+78463004840')
+						+icon('tell')
+				.col-auto.d-none.d-md-block
+					+e.tel(href='tel:+78463004840') +7 (846) 300 48 40
+					+e.shedule Пн-Пт 9:00 - 18:00
+				.col-auto.d-none.d-lg-block
+					+e.btn(href='#')
+						sapn Перезвоните мне
+				.col-auto
+					+e.menu-btn.burger-js
 						span
-				.col.d-none.d-lg-block
-					+mnu()
-					
 	// end top-nav
+
+mixin socItem(iconName)
+	.col-auto
+		+e.soc-item(href="#")
+			img(loading="lazy" src=`img/svg/${iconName}.svg` alt="")
+
+mixin mobMenu()
+	+b.mob-menu--js
+		+e.menu
+			+mnu()
