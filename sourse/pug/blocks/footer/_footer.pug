@@ -1,2 +1,53 @@
 mixin footer()
-	footer.footer
+  +b.FOOTER.footer
+    .container
+      +e.numbers
+        +e.number(href='tel:+78463004840') +7 (846) 300 48 40
+      +e.connect-txt Позвоните нам по телефону или свяжитесь с нами в мессенджерах:
+      +e.btns-row.row.text-center
+        +e.btn-col.col-md-auto
+          +e.btn--wa(href='#')
+            +icon('whatsapp')
+            span Whatsapp
+        +e.btn-col.col-md-auto
+          +e.btn--tg(href='#')
+            +icon('telegram')
+            span Telegram
+        +e.btn-col.col-md-auto
+          +e.btn--vb(href='#')
+            +icon('viber')
+            span Viber
+      +e.lower-row.row.text-center.text-md-start
+        +e.logo-col.col-lg-5.col-xl-auto
+          +e.logo-sub-row.row.align-items-end
+            .col-md.col-lg-12
+              +e.logo(href='#')
+                img(loading="lazy" src='img/svg/logo.svg' alt="")
+              +e.logo-txt Официальный партнер 1С в Самаре
+            +e.policy-col.d-none.d-md-block.col-auto.col-lg-12
+              +e.policy(href="#") Политика конфиденциальности
+        +e.plates-col.col
+          +e.plates-row.row
+            +e.p-big-col.col-md
+              +e.title Наш адрес
+              +e.txt г. Самара, Партизанская ул, дом № 86, офис 723
+            +e.p-sm-col.col-md-auto
+              +e.title Электронная почта
+              +e.mail(href='mailto:info@datexsoft.ru') info@datexsoft.ru
+          +e.plates-row.row
+            +e.p-big-col.col-md
+              +e.title Режим работы
+              +e.txt Пн-Пт с 9:00 до 18:00
+            +e.p-sm-col.col-md-auto
+              +e.title Мы в социальных сетях
+              +e.soc-row.row.justify-content-center.justify-content-md-start
+                +footerSocItem('fb')
+                +footerSocItem('inst')
+                +footerSocItem('vk')
+        .col-12.d-md-none
+          +e.policy(href="#") Политика конфиденциальности
+
+mixin footerSocItem(icon)
+  .col-auto
+    +e.soc-item(href='#')
+      +icon(icon)

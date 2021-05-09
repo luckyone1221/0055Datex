@@ -1,0 +1,19 @@
+mixin sApp(data)
+	// start sApp
+	+b.SECTION.sApp.section#sApp&attributes(attributes)
+		+pic('sApp-plant.png').sApp__plant.d-none.d-xxl-block
+		.container
+			+e.row.row
+				+e.pic-col.col-md-auto.order-last.order-md-0
+					+pic('sApp-phone2', undefined, 0).sApp__tell
+				+e.txt-col.col-md.text-center.text-md-start
+					+b.section-title
+						h2 Мобильное приложение 1С:УНФ
+						p Доступно в PlayMarket и AppStore
+						ul
+							li Принимайте заказы, выставляйте счета, получайте оплату
+							li Закупайте товары, анализируйте остатки на складе
+							li Составляйте калькуляцию и оформляйте выпуск продукции
+							li Оплачивайте и учитывайте расходы
+							li Анализируйте продажи, расходы, прибыль бизнеса
+	// end sApp

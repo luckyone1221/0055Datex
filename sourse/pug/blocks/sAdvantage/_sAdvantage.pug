@@ -1,0 +1,58 @@
+mixin sAdvantage(data)
+	// start sAdvantage
+	+b.SECTION.sAdvantage.section#sAdvantage&attributes(attributes)
+		+pic('keyboard.png').sAdvantage__keyboard.d-none.d-xxl-block
+		+pic('calc.png').sAdvantage__calc.d-none.d-xxl-block
+		.container
+			+b.section-title.text-center
+				h2 Преимущества 1C:УНФ
+			+e.items
+				+sAdvantageItem(1)
+					+e.H5.title Идеально подойдет для начинающих предпринимателей
+					+e.descr Систематизировать и автоматизировать бизнес можно поэтапно. Программа не перегружена излишней функциональностью, её можно легко настроить под особенности организации управления и учета вашего бизнеса. Не требуется специальных бухгалтерских знаний.
+				+sAdvantageItem(2)
+					+e.H5.title Быстрый старт
+					+e.descr Интуитивный и понятный инструмент. Все в одном приложении: торговля и склад, услуги и работы, закупки и резервы, банк и касса, кадры и расчет зарплаты, производство и сборочные операции, аналитические отчеты и CRM.
+				+sAdvantageItem(3)
+					+e.H5.title Бизнес-аналитика
+					+e.descr
+						| Статистика продаж и прибыльность по заказам, товарам,
+						|
+						br.d-none.d-xxl-block
+						| направлениям деятельности. Контроль денежных потоков
+						|
+						br.d-none.d-xxl-block
+						| и взаиморасчетов с покупателями, поставщиками. Учет доходов, расходов и анализ финансового результата работы компании.
+				+sAdvantageItem(4)
+					+e.H5.title Профессиональная помощь
+					+e.descr
+						| Консультации и сопровождение по программным  продуктам и услугам.
+						|
+						br.d-none.d-xxl-block
+						| Регулярные бесплатные вебинары. Учебные материалы, презентации
+						|
+						br.d-none.d-xxl-block
+						| и видеоролики с подробным разбором функций в любой момент.
+				+sAdvantageItem(5)
+					+e.H5.title Работа без ограничений
+					+e.descr
+						| Работайте как угодно и где угодно — на компьютере в офисе,
+						|
+						br.d-none.d-xxl-block
+						| на ноутбуке в дороге, на планшете в парке. Ваши данные сохраняются
+						|
+						br.d-none.d-xxl-block
+						| и доступны в любой из версий 1С:Управление нашей фирмой.
+						|
+						br.d-none.d-xxl-block
+						| Начните сейчас!
+	// end sAdvantage
+
+mixin sAdvantageItem(imgNum)
+	+e.item
+		+e.row.row.align-items-center
+			+e.txt-col.col-auto.text-center.text-md-start
+				block
+			.col
+				+e.img
+					img(loading="lazy" src=`img/svg/sAdvantage-${imgNum}.svg` alt="")

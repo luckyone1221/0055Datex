@@ -1,0 +1,33 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sOpportunities/_sOpportunities.pug
+include ../blocks/sVersions/_sVersions.pug
+include ../blocks/sApp/_sApp.pug
+include ../blocks/sAdvantage/_sAdvantage.pug
+include ../blocks/sDemonstration/_sDemonstration.pug
+include ../blocks/sClients/_sClients.pug
+include ../blocks/sQuestions/_sQuestions.pug
+
+block variables
+	- let  mainPage= null 
+	- let  bg= null
+
+block title
+	- let  title= 'title'
+	title= title
+block pagecontent
+	//-+mob-mnu()
+	//+header()
+	+mobMenu()
+	+top-nav()
+	.section.bg-white
+		.container
+			.row.gy-3
+				.col-auto
+					a.btn.btn-primary.link-modal-js(href='#modal-trade') Торговля
+				.col-auto
+					a.btn.btn-primary.link-modal-js(href='#modal-compare') Сравнение версий
+	+footer()

@@ -1,43 +1,231 @@
 .footer {
-		
 	margin-top: auto;
+	padding: rem(95) 0;
 
-// 
-@include media-breakpoint-up(xl) {}
+	&__{}
+	&__{}
+	&__numbers{
+		text-align: center;
+		font-weight: bold;
+		margin-bottom: rem(40);
 
-@include media-breakpoint-up(lg) {}
+		&:after{
+			content: '';
+			display: block;
+			width: rem(80);
+			height: 4px;
+			margin-left: auto;
+			margin-right: auto;
+			background: linear-gradient(90deg, $yellow 0%, $red 100%);
 
-@include media-breakpoint-up(md) {}
+			margin-top: rem(32);
+			@include media-breakpoint-up(md){
+				margin-top: rem(40);
+			}
+			@include media-breakpoint-up(lg){
+				margin-top: rem(45);
+			}
+			@include media-breakpoint-up(xxl){
+				margin-top: rem(44);
+			}
+		}
+	}
+	&__number{
+		font-family: $mono;
+		display: inline-block;
 
-@include media-breakpoint-up(sm) {}
+		color: $body-color;
+		&:hover{
+			color: $body-color;
+		}
 
-@include media-breakpoint-up(xs) {}
+		font-size: rem(36);
+		line-height: (44/36);
+		@include media-breakpoint-up(md){
+			font-size: rem(48);
+			line-height: (58/48);
+		}
+		@include media-breakpoint-up(xxl){
+			font-size: rem(60);
+			line-height: (73/60);
+		}
+	}
+	&__connect-txt{
+		text-align: center;
+		margin-bottom: rem(60);
 
+		font-size: rem(18);
+		line-height: 1.75;
+	}
+	//foot-waves
+	&__btns-row{
+		justify-content: center;
+		align-items: center;
 
-// 
-@include media-breakpoint-between(md, xl) {}
+		padding-bottom: rem(60);
+		@include media-breakpoint-up(md){
+			padding-bottom: rem(60);
+		}
+		@include media-breakpoint-up(lg){
+			padding-bottom: rem(96px);
+		}
 
+		@include roww(rem(16));
+		--bs-gutter-y: #{rem(16)};
+		@include media-breakpoint-up(xl){
+			@include roww(rem(24));
+			--bs-gutter-y: #{rem(24)};
+		}
+	}
+	&__btn-col{
 
-// 
-@include media-breakpoint-only(xs) {}
+	}
+	&__btn{
+		width: 100%;
+		@include media-breakpoint-up(md){
+			width: rem(224);
+		}
+		@include media-breakpoint-up(lg){
+			width: rem(300);
+		}
+		border-radius: rem(5);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 
-@include media-breakpoint-only(sm) {}
+		font-weight: 600;
+		font-size: rem(20);
+		padding: 18px 12px;
+		line-height: 1.2;
 
-@include media-breakpoint-only(md) {}
+		color: $white!important;
+		&:hover{
+			color: $white!important;
+		}
+		.icon{
+			color: $white;
+			font-size: rem(30);
+			margin-right: rem(12);
+		}
 
-@include media-breakpoint-only(lg) {}
+		@extend .btn;
+		&--wa{
+			@extend .btn-success;
+		}
+		&--vb{
+			@extend .btn-purple;
+		}
+		&--tg{
+			@extend .btn-blue;
+		}
+	}
 
-@include media-breakpoint-only(xl) {}
+	&__lower-row{
+		--bs-gutter-y: #{rem(30)};
+	}
+	//
+	&__logo-col{
+		display: flex;
+		flex-direction: column;
 
+		@include media-breakpoint-up(xl){
+			width: rem(400);
+		}
+		@include media-breakpoint-up(xxl){
+			width: rem(495);
+		}
+	}
+	&__logo-sub-row{
+		flex-grow: 1;
+	}
+	&__logo{
+		width: rem(166);
+		display: block;
+		//22px
 
-// 
-@include media-breakpoint-down(xl) {}
+		margin: 0 auto rem(22) auto;
+		@include media-breakpoint-up(md){
+			margin: 0 0 rem(22) 0;
+		}
 
-@include media-breakpoint-down(lg) {}
+		img{
+			max-width: 100%;
+			width: auto;
+		}
+	}
+	&__logo-txt{
 
-@include media-breakpoint-down(md) {}
+	}
+	&__policy-col{
+		@include media-breakpoint-up(lg){
+			margin-top: auto;
+		}
+	}
+	&__policy{
+		text-decoration-line: underline;
+		color: $gray-650;
+		&:hover{
+			color: $danger;
+		}
+	}
+	//
+	&__plates-col{
 
-@include media-breakpoint-down(sm) {}
+	}
+	&__plates-row{
+		padding-bottom: rem(36px);
+		&:last-child{
+			padding-bottom: 0;
+		}
 
-@include media-breakpoint-down(xs) {}
+		--bs-gutter-y: #{rem(34)};
+	}
+	&__p-big-col{
+
+	}
+	&__p-sm-col{
+		@include media-breakpoint-up(md){
+			width: rem(264);
+		}
+		@include media-breakpoint-up(lg){
+			width: rem(216);
+		}
+	}
+	&__title{
+		font-weight: bold;
+		margin-bottom: rem(12);
+	}
+	&__txt{
+
+	}
+	&__mail{
+		text-decoration-line: underline;
+		color: $danger;
+		&:hover{
+			color: darken($danger, 4);
+		}
+	}
+	&__soc-row{
+		@include roww(rem(24));
+
+	}
+	//
+	&__soc-item{
+		width: rem(24);
+		height: rem(24);
+		&:hover{
+			transform: scale(1.1);
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.icon{
+			font-size: rem(24);
+		}
+	}
+	//
+	&__{}
+	&__{}
 }

@@ -72,6 +72,11 @@
 		width: rem(28);
 		height: rem(28);
 
+		@include mt();
+		&:hover{
+			transform: scale(1.08);
+		}
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -102,6 +107,7 @@
 		@extend .btn-outline-danger;
 	}
 	&__menu-btn{
+		@include mt();
 		position: relative;
 		z-index: 1001;
 
@@ -110,6 +116,9 @@
 		height: rem(45);
 		border-radius: 50%;
 		background: $gray-500;
+		&:hover{
+			background: $white;
+		}
 
 		span,
 		span:before,

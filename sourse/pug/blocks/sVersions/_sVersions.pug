@@ -1,0 +1,145 @@
+mixin sVersions(data)
+	// start sVersions
+	+b.SECTION.sVersions.section#sVersions&attributes(attributes)
+		+pic('glasses.png').sVersions__bg.sVersions__bg--1.d-none.d-xxl-block
+		+pic('clips.png').sVersions__bg.sVersions__bg--2.d-none.d-xxl-block
+		+pic('coffee.png').sVersions__bg.sVersions__bg--3.d-none.d-xxl-block
+		+e.container.container
+			+b.section-title.text-center
+				h2 Версии
+			+e.items
+				+sVersionsItem({
+					title: 'Базовая версия',
+					price: '5 400 руб.',
+					hasBuyBtn: true,
+					leftListAddClasses: 'list-off',
+					vantageTxtArrLeft: [
+						'1 пользователь',
+						'Нет дополнительных рабочих мест',
+						'Нет возможности расширения',
+						'Учет только одной организации',
+						'Невозможна доработка функционала под фирму',
+						'Нет режима «веб-клиент»'
+					],
+					vantageTxtArrRight: [
+						'Основной функционал(в сравнении версий)',
+						'Интеграция с интернет-магазином',
+						'Работа совместно с 1С:Бухгалтерия',
+						'Поддержка торгового оборудования',
+					],
+				})
+				//-2
+				+sVersionsItem({
+					itemAddClass: 'gradient-border red-border',
+					title: 'Профессиональная версия',
+					tags: ['Популярная версия'],
+					price: '17 400 руб.',
+					rent: '1 250 руб.',
+					hasBuyBtn: true,
+					hasRentBtn: true,
+					vantageTxtArrLeft: [
+						'Несколько пользователей (при покупке лицензии)',
+						'Учет по нескольким организациям в единой базе',
+						'Возможность изменения прикладного решения',
+						'Возможность работы с программой нескольким пользователям',
+					],
+					vantageTxtArrRight: [
+						'Работа территориально распределенных информационных баз',
+						'Поддержка внешнего соединения с информационной базой',
+						'Использование веб-клиента',
+					],
+				})
+				//-3
+				+sVersionsItem({
+					title: 'Версия на 5 пользователей',
+					tags: ['Выгодно'],
+					price: '31 800 руб.',
+					hasBuyBtn: true,
+					oldPrice: '42 600 руб.',
+					vantageTxtArrLeft: [
+						'5 пользователей',
+						'Возможность добавления новых пользователей',
+						'Единоразовая оплата',
+					],
+					vantageTxtArrRight: [
+						'6 300 руб за каждое дополнительное рабочее место',
+					],
+				})
+				//-4
+				+sVersionsItem({
+					itemAddClass: 'gradient-border blue-border',
+					title: '1С:Фреш',
+					tags: ['Облачная версия'],
+					blueTag: true,
+					price: '1 303 руб. в месяц',
+					hasBuyBtn: false,
+					hasRentBtn: false,
+					hasTrailBtn: true,
+					vantageTxtArrLeft: [
+						'30 дней бесплатно',
+						'2 пользователя',
+						'Возможность добавления новых пользователей',
+						'Помесячная оплата',
+					],
+					vantageTxtArrRight: [
+						'Скидка при неприрывном продлении',
+						'Возможность начать пользоваться бесплатно',
+					],
+				})
+			+e.btn-cont.text-center
+				+e.big-btn(href='#')
+					| Сравнительная
+					br
+					| таблица
+	// end sVersions
+
+mixin sVersionsItem(data)
+	+e.item(class=`${data.itemAddClass || ''}`)
+		if data.tags
+			+e.tags
+				+e.t-row.row.justify-content-center.justify-content-md-start
+					-for (let tag of data.tags)
+						.col-auto
+							if data.blueTag
+								+e.tag--blue=tag
+							else
+								+e.tag--red=tag
+		+e.H4.title.text-center.text-md-start=data.title
+		+e.content
+			+e.vantage-row.row
+				.col-md-6
+					+e.vantage-list(class=`${data.leftListAddClasses || ''}`)
+						ul
+							-for (let txt of data.vantageTxtArrLeft)
+								li=txt
+				.col-md-6
+					+e.vantage-list
+						ul
+							-for (let txt of data.vantageTxtArrRight)
+								li=txt
+		+e.foot
+			+e.f-row.row.align-items-center
+				+e.price-col.col
+					+e.price-row.row
+						.col-auto.col-lg-12.col-xl-auto
+							+e.price
+								+e.p-txt Цена:
+								+e.p-val--orange=data.price
+								if data.oldPrice
+									+e.old-price 42 600 руб.
+						if data.rent
+							.col-auto.col-lg-12.col-xl-auto
+								+e.price
+									+e.p-txt Аренда:
+									+e.p-val--gray=data.rent
+				+e.btns-col.col-lg-auto
+					+e.btns-row.row.text-lg-end.text-start
+						if data.hasRentBtn
+							.col-md-6.col-lg-12.col-xl-auto
+								+e.btn--rent(href='#') Арендовать
+						if data.hasBuyBtn
+							.col-md-6.col-lg-12.col-xl-auto
+								+e.btn--buy(href='#') Купить
+						if data.hasTrailBtn
+							.col-md-6.col-lg-12.col-xl-auto
+								+e.btn--trail(href='#') Получить 30 дней бесплатно

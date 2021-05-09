@@ -1,0 +1,22 @@
+mixin sClients(data)
+	// start sClients
+	+b.SECTION.sClients.section#sClients&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Наши клиенты
+			+e.sliders-cont
+				+sClientsSlider('sClients-slider-js')
+				+sClientsSlider('sClients2-slider-js')
+	// end sClients
+
+mixin sClientsSlider(sliderClass)
+	+e.slider-wrap
+		.swiper-container(class=sliderClass)
+			.swiper-wrapper
+				-for(var i = 1; i < 7; i++)
+					+sClientsSlide(i)
+
+mixin sClientsSlide(imgNum)
+	.swiper-slide
+		+e.item
+			+pic(`partner-logo-${imgNum}.png`).sClients__img

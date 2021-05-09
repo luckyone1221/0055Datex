@@ -1,0 +1,64 @@
+// start .sClients
+.sClients {
+	--sPT: #{rem(95)};
+	--sPB: #{rem(100)};
+	--sTPB: #{rem(60)};
+
+	overflow-x: hidden;
+	&__sliders-cont{
+
+	}
+	&__slider-wrap{
+		margin-bottom: rem(12);
+		@include media-breakpoint-up(md){
+			margin-bottom: rem(20);
+		}
+
+		.swiper-container{
+			overflow: visible!important;
+		}
+		.swiper-wrapper{
+			transition-timing-function: linear;
+		}
+		.swiper-slide{
+
+			width: rem(172);
+			@include media-breakpoint-up(md){
+				//width: calc((100% / 4) - (20px * 3 / 4));
+				width: rem(310);
+			}
+		}
+	}
+	&__item{
+		width: 100%;
+
+		height: rem(133);
+		@include media-breakpoint-up(md){
+			height: rem(240);
+		}
+
+		//background: $gray-520;
+		background: $white;
+		border-radius: rem(15);
+
+		padding: rem(30);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__img{
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__{}
+} // end.sClients

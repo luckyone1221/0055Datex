@@ -1,0 +1,41 @@
+mixin sQuestions(data)
+	// start sQuestions
+	+b.SECTION.sQuestions.section#sQuestions&attributes(attributes)
+		+pic('notebook.png').sQuestions__bg.sQuestions__bg--notebook.d-none.d-xxl-block
+		+pic('three3.png').sQuestions__bg.sQuestions__bg--tree.d-none.d-xxl-block
+		.container
+			+b.section-title.text-center
+				h2
+					| Остались вопросы,
+					br
+					| на которые нужны ответы?
+			+e.row.row.sQuestions-dd-group-js
+				.col-lg-6
+					+sQuestionsItem()
+						| Возможна ли совместная работа 1С:УНФ
+						br
+						| с интернет-магазином?
+					+sQuestionsItem()
+						| Зачем нужна 1С:УНФ если есть 1С:Бухгалтерия?
+					+sQuestionsItem('active')
+						| Зачем нужна 1С:УНФ если есть 1С:Бухгалтерия?
+				.col-lg-6
+					+sQuestionsItem()
+						| Возможна ли совместная работа 1С:УНФ
+						br
+						| с интернет-магазином?
+					+sQuestionsItem()
+						| Возможна ли совместная работа 1С:УНФ
+						br
+						| с интернет-магазином?
+					+sQuestionsItem()
+						| Зачем нужна 1С:УНФ если есть 1С:Бухгалтерия?
+			.text-center
+				+e.btn(href='#') Задать свой вопрос
+	// end sQuestions
+
+mixin sQuestionsItem(activeClass='')
+	+e.item(class=activeClass)
+		+e.H6.header.mb-0.dd-head-js
+			block
+		+e.content.dd-content-js(class=activeClass) Работайте как угодно и где угодно — на компьютере в офисе, на ноутбуке в дороге, на планшете в парке. Ваши данные сохраняются и доступны в любой из версий 1С:Управление нашей фирмой. Начните сейчас!

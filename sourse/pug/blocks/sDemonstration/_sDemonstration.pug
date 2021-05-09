@@ -1,0 +1,16 @@
+mixin sDemonstration(imgName='sDemo-bg')
+	// start sDemonstration
+	+b.SECTION.sDemonstration.section#sDemonstration&attributes(attributes)
+		+pic(imgName).sDemonstration__bg
+		.container
+			+b.section-title.text-center
+				if block
+					block
+				else
+					h2
+						| Бесплатная
+						br
+						| демонстрация
+					p Наши специалисты проведут для вас бесплатную демонстрацию любой версии в онлайн режиме или приедут к вам в офис в удобное для вас время.
+					+e.btn(href="#") Заявка на демонстрацию
+	// end sDemonstration

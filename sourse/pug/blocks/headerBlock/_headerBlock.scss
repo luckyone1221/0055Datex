@@ -1,15 +1,20 @@
 // start .headerBlock
 .headerBlock {
+	overflow-x: hidden;
+	width: 100%;
+
 	--sPT: #{rem(30)};
 	@include media-breakpoint-up(md){
 		--sPT: #{rem(51)};
+		--sPB: #{rem(101px)};
 	}
 	@include media-breakpoint-up(lg){
 		--sPT: #{rem(55)};
+		--sPB: #{rem(101px)};
 	}
 	@include media-breakpoint-up(xl){
 		--sPT: #{rem(70)};
-		--sPB: #{rem(99px)};
+		--sPB: #{rem(109px)};
 	}
 	@include media-breakpoint-up(xxl){
 		--sPB: #{rem(99px)};
