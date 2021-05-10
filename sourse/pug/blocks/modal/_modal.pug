@@ -9,6 +9,8 @@ mixin modal()
 					.swiper-wrapper
 						-for(var i = 1; i < 9; i++)
 							+tradeSlide()
+				.d-none.d-md-block
+					+arrow()
 			+e.thumb
 				.swiper-container.modal-trade-thumb-js
 					.swiper-wrapper
@@ -18,7 +20,7 @@ mixin modal()
 			p Используйте программу, как бэк-офис для ваших интернет-магазинов. Это отличный помощник для автоматизации операций по оптовым закупкам и продажам товаров и услуг.
 			p Если вы владелец магазина продуктов, одежды, спорт товаров, бытовой техники, бутика и прочих розничных точек, 1С:УНФ автоматизирует все хозяйственные операции, включая приемку и передачу товаров на комиссию, планирование продаж по предприятию, по подразделениям, по менеджерам и по категориям номенклатуры, анализируя каждый процесс в колличестве и в денежном выражении.
 		.text-center
-			+e.close-btn.modal-close-js(type="button") Закрыть
+			button.mod-close-btn.modal-close-js(type="button") Закрыть
 	// #modal-trade
 	+b.modal-compare.modal-win.modal-win--lg(id="modal-compare" style="display: none" )
 		.section-title.text-center
@@ -52,6 +54,34 @@ mixin modal()
 			+tableRow(false, false)
 				| В составе имеется дополнительная лицензия на 5 пользователей
 		.text-center
+			button.mod-close-btn.modal-close-js(type="button") Закрыть
+	+b.modal-call.modal-win.modal-win--sm(id="modal-call" style="display: none" )
+		.section-title.text-center
+			h4 Заказать звонок
+		+e.descr.text-center Заполните форму и мы свяжемся с Вами в ближайшее время для уточнения деталей
+		+form-wrap()
+			+input('Ваше имя', 'text')
+			+input('Ваш телефон', 'tell')
+			+e.polite
+				+e.polite-row.row
+					.col-auto
+						+in-c('checkbox')
+					.col
+						+e.polite-txt
+							span
+								| Я согласен на обработку и хранение моих персональных данных в соответствии с
+								|
+							a(href='#') Условиями.
+			+e.btn-cont.text-center
+				+e.btn(type="submit") Отправить
+	+b.modal-call.modal-win.modal-win--sm(id="modal-thanks" style="display: none" )
+		.section-title.text-center
+			h4
+				| Спасибо
+				br
+				| за обращение!
+		+e.descr.text-center Мы свяжемся с Вами в ближайшее время для уточнения деталей
+		+e.close-btn-cont.text-center
 			button.mod-close-btn.modal-close-js(type="button") Закрыть
 	// end modals
 

@@ -1,23 +1,47 @@
 .modal-win {
-	width: calc(100% - 36px);
-	padding: rem(100) rem(34) !important;
-	@include media-breakpoint-up(md){
-		width: calc(100% - 48px);
-		padding: rem(100) rem(38) rem(80) rem(38) !important;
+	&--lg{
+		width: calc(100% - 36px);
+		padding: rem(100) rem(34) !important;
+		@include media-breakpoint-up(md){
+			width: calc(100% - 48px);
+			padding: rem(100) rem(38) rem(80) rem(38) !important;
+		}
+		@include media-breakpoint-up(lg){
+			width: calc(100% - 80px);
+			padding: rem(100) rem(64) rem(80) rem(64) !important;
+		}
+		@include media-breakpoint-up(xl){
+			width: calc(100% - 100px);
+			padding: rem(100) rem(80) rem(80) rem(80) !important;
+		}
+		@include media-breakpoint-up(xxl){
+			padding: rem(100) rem(90) !important;
+		}
+		max-width: rem(1300);
 	}
-	@include media-breakpoint-up(lg){
-		width: calc(100% - 80px);
-		padding: rem(100) rem(64) rem(80) rem(64) !important;
-	}
-	@include media-breakpoint-up(xl){
-		width: calc(100% - 100px);
-		padding: rem(100) rem(80) rem(80) rem(80) !important;
-	}
-	@include media-breakpoint-up(xxl){
-		padding: rem(100) rem(90) !important;
+	&--sm{
+		width: calc(100% - 36px);
+		padding: rem(100) rem(34) !important;
+		@include media-breakpoint-up(md){
+			width: calc(100% - 48px);
+			padding: rem(100) rem(38) rem(80) rem(38) !important;
+		}
+		@include media-breakpoint-up(lg){
+			width: calc(100% - 80px);
+			padding: rem(100) rem(64) rem(80) rem(64) !important;
+		}
+		@include media-breakpoint-up(xl){
+			width: calc(100% - 100px);
+			padding: rem(100) rem(80) rem(80) rem(80) !important;
+		}
+		@include media-breakpoint-up(xxl){
+			padding: rem(60) rem(90) !important;
+		}
+		max-width: rem(640);
+
+		background: $gray-520;
 	}
 	position: relative;
-	max-width: rem(1300);
 
 	.mfp-close {
 		color: $primary;
@@ -73,8 +97,9 @@
 	}
 	&__slider-wrap{
 		margin-bottom: rem(22);
+		position: relative;
 		.swiper-container{
-
+			position: static;
 		}
 		.swiper-wrapper{
 
@@ -83,6 +108,16 @@
 
 		}
 	}
+	.swiper-button-hand{
+		&-next {
+			right: calc(var(--sliders-px) * -1);
+		}
+
+		&-prev {
+			left: calc(var(--sliders-px) * -1);
+		}
+	}
+
 	&__link{
 		//@extend .accept-ratio-frame;
 		//padding-top: 50%;
@@ -272,4 +307,57 @@
 		}
 	}
 	&__{}
+}
+
+.modal-call{
+	.section-title{
+		padding-bottom: rem(30);
+	}
+	&__descr{
+		line-height: 1.75;
+		margin-bottom: rem(40);
+	}
+
+	.form-wrap{
+		&__input-wrap{
+			margin-bottom: rem(20);
+		}
+		&__input{
+			text-align: center;
+		}
+		&__polite{
+			margin-bottom: rem(40);
+		}
+		&__polite-row{
+			@include roww(rem(10));
+		}
+		&__polite-txt{
+			font-size: rem(14);
+			line-height: 1.75;
+		}
+		&__btn-cont{
+
+		}
+		&__btn{
+			@extend .btn;
+			@extend .btn-danger;
+
+			padding: rem(20) rem(30);
+			min-width: rem(250);
+
+			//color: $white;
+		}
+		&__{}
+	}
+	&__close-btn-cont{
+
+	}
+	&__{}
+}
+
+.custom-input{
+	cursor: pointer;
+	& > *{
+		cursor: pointer;
+	}
 }

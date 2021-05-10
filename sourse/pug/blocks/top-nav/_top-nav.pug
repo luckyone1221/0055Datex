@@ -1,6 +1,6 @@
 mixin top-nav()
 	// start top-nav
-	+b.top-nav.block-with-lazy
+	+b.top-nav--js.block-with-lazy
 		+e.container.container-fluid
 			+e.row.row.align-items-center
 				.col
@@ -8,7 +8,7 @@ mixin top-nav()
 						.col-auto
 							+e.logo(href='#')
 								img(loading="lazy" src="img/svg/logo.svg" alt="")
-						.col.d-none.d-lg-block
+						.col-xl.d-none.d-lg-block
 							+e.descr Официальный партнер 1С в Самаре
 				.col-auto
 					+e.soc-row.row

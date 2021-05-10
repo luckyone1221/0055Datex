@@ -185,14 +185,8 @@
 		display: block;
 		width: 100%;
 		height: 0;
-		position: relative;
 		overflow: hidden;
 		padding-top: 100%;
-
-		--ball-opacity: 0;
-		&:hover{
-			--ball-opacity: 0.2;
-		}
 	}
 	&__content{
 		position: absolute;
@@ -230,6 +224,8 @@
 		text-align: center;
 	}
 	&__img{
+		pointer-events: none;
+
 		width: rem(130);
 		height: rem(130);
 		@include media-breakpoint-up(lg){
@@ -254,24 +250,11 @@
 		}
 	}
 	&__ball{
-		transition: opacity .2s ease-in-out;
-		//&.has-transition{
-		//	transition: all .2s linear;
-		//}
-
-		position: absolute;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-		opacity: var(--ball-opacity, 0);
-
-		background: radial-gradient(50% 50% at 50% 50%, #DB1E32 0%, rgba(245, 203, 53, 0) 100%);
-		//opacity: 0.2;
-		left: 50%;
-		top: 50%;
-		transform: translateX(-50%) translateY(-50%);
+		width: 100%!important;
+		height: 100%!important;
 	}
 	&__name{
+		pointer-events: none;
 		width: 100%;
 		font-size: rem(18);
 		line-height: 1.25;

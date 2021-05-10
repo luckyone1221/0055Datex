@@ -106,7 +106,21 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+
+		//overflow: hidden;
+		//position: relative;
+		//z-index: 1;
+		//--ball-opacity: 0;
+		//&:hover{
+		//	--ball-opacity: 0.2;
+		//}
+
+		//&.disabled{
+		//	--ball-opacity: 0!important;
+		//}
 	}
+
+
 	&__row{
 		@include roww(rem(46));
 		@include media-breakpoint-up(md){
@@ -173,6 +187,11 @@
 		}
 	}
 	&__btn{
+		/// important for js
+		position: relative;
+		z-index: 5;
+		/// important for js
+
 		@extend .btn;
 		@extend .btn-danger;
 

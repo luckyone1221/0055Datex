@@ -8,7 +8,9 @@ mixin sVersions(data)
 			+b.section-title.text-center
 				h2 Версии
 			+e.items
+				+asideMenu()
 				+sVersionsItem({
+					id: 'box1',
 					title: 'Базовая версия',
 					price: '5 400 руб.',
 					hasBuyBtn: true,
@@ -30,6 +32,7 @@ mixin sVersions(data)
 				})
 				//-2
 				+sVersionsItem({
+					id: 'box2',
 					itemAddClass: 'gradient-border red-border',
 					title: 'Профессиональная версия',
 					tags: ['Популярная версия'],
@@ -51,6 +54,7 @@ mixin sVersions(data)
 				})
 				//-3
 				+sVersionsItem({
+					id: 'box3',
 					title: 'Версия на 5 пользователей',
 					tags: ['Выгодно'],
 					price: '31 800 руб.',
@@ -67,6 +71,7 @@ mixin sVersions(data)
 				})
 				//-4
 				+sVersionsItem({
+					id: 'box4',
 					itemAddClass: 'gradient-border blue-border',
 					title: '1С:Фреш',
 					tags: ['Облачная версия'],
@@ -94,7 +99,7 @@ mixin sVersions(data)
 	// end sVersions
 
 mixin sVersionsItem(data)
-	+e.item(class=`${data.itemAddClass || ''}`)
+	+e.item.sidebar-box-js.ball-item-js(class=`${data.itemAddClass || ''}` id=data.id)
 		if data.tags
 			+e.tags
 				+e.t-row.row.justify-content-center.justify-content-md-start
@@ -136,10 +141,21 @@ mixin sVersionsItem(data)
 					+e.btns-row.row.text-lg-end.text-start
 						if data.hasRentBtn
 							.col-md-6.col-lg-12.col-xl-auto
-								+e.btn--rent(href='#') Арендовать
+								+e.btn--rent.avoid-track-js(href='#') Арендовать
 						if data.hasBuyBtn
 							.col-md-6.col-lg-12.col-xl-auto
-								+e.btn--buy(href='#') Купить
+								+e.btn--buy.avoid-track-js(href='#') Купить
 						if data.hasTrailBtn
 							.col-md-6.col-lg-12.col-xl-auto
-								+e.btn--trail(href='#') Получить 30 дней бесплатно
+								+e.btn--trail.avoid-track-js(href='#') Получить 30 дней бесплатно
+		.sidebar-ball-js
+		.ball-tracker-js
+
+mixin asideMenu()
+	+e.aside-menu-cont
+		+e.aside-menu.aside-menu-js
+			ul
+				li: a.active(href='#box1') Базовая
+				li: a(href='#box2') ПРОФ
+				li: a(href='#box3') Пакет
+				li: a(href='#box4') Фреш

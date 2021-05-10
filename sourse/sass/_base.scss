@@ -112,7 +112,7 @@ body {
 .section-title {
 	padding-bottom: var(--sTPB);
 
-	h2, h1{
+	h2, h1, h4{
 		position: relative;
 		&::after{
 			content: '';
@@ -135,7 +135,7 @@ body {
 	}
 
 	&.text-center{
-		h2, h1{
+		h2, h1, h4{
 			&:after{
 				margin-left: auto;
 				margin-right: auto;
@@ -310,11 +310,12 @@ ul {
 }
 
 .swiper-button-hand {
+	cursor: pointer;
 	width: var(--swiperArrowSize);
 	height: var(--swiperArrowSize);
 	border-radius: 50%;
-	background-color: var(--swiperBgDef);
-	border: 2px solid var(--swiperBorderColorDef);
+	background-color: transparent!important;
+	border: none!important;
 	color: var(--swiperColorDef);
 	@include bgs;
 	z-index: 300;
@@ -323,18 +324,23 @@ ul {
 	background-image: none;
 	margin: 0;
 	@include a-cent(y);
-	box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+	box-shadow: none;
 	@include mt;
 	user-select: none;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:hover {
 		background-color: var(--swiperBgDefHover);
 		border-color: var(--swiperBorderColorDefHover);
 		color: var(--swiperColorDefHover);
+		transform: scale(1.1);
 	}
 
 	.icon {
-		font-size: rem(12);
+		font-size: rem(30);
 	}
 
 	&::after {
@@ -524,8 +530,23 @@ h2{
 }
 
 //
+.btn{
+	box-shadow: none!important;
+}
 .btn-warning{
 	font-weight: 400;
+
+	&:hover{
+		background-color: $yellow2!important;
+	}
+}
+.btn-danger, .btn-primary{
+	font-weight: 400;
+
+	&:hover{
+		background-color: $red2!important;
+		border-color: $red2!important;
+	}
 }
 
 //
@@ -616,4 +637,45 @@ h2{
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+}
+//tracker css(red ball)
+.ball-item-js{
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	--ball-opacity: 0;
+	&:hover{
+		--ball-opacity: 0.2;
+	}
+
+	&.disabled{
+		--ball-opacity: 0!important;
+	}
+}
+
+.sidebar-ball-js{
+	transition: opacity .2s ease-in-out;
+	position: absolute;
+	z-index: -1;
+	opacity: var(--ball-opacity, 0);
+	width: rem(344);
+	height: rem(344);
+
+	background: radial-gradient(50% 50% at 50% 50%, #DB1E32 0%, rgba(245, 203, 53, 0) 100%);
+	//opacity: 0.2;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+.avoid-track-js{
+	position: relative;
+	z-index: 5;
+}
+.ball-tracker-js{
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }

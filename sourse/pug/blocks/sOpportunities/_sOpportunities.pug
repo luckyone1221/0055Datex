@@ -50,7 +50,8 @@ mixin sOpportunities(data)
 		
 mixin sOpportunitiesItem(imgNum, title)
 	.swiper-slide
-		+e.item
+		+e.item.ball-item-js
+			.sidebar-ball-js
 			+e.row.row.align-items-center
 				.col-auto
 					+e.img(href='#')
@@ -61,4 +62,5 @@ mixin sOpportunitiesItem(imgNum, title)
 						+e.list
 							ul
 								block
-					+e.btn(href='#') Подробнее
+					+e.btn.avoid-track-js(href='#') Подробнее
+			.ball-tracker-js

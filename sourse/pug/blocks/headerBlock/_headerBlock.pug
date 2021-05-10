@@ -26,10 +26,10 @@ mixin headerBlock()
 
 mixin headerBlockPill(imgNum, name)
 	.col-6.col-lg-3
-		+e.pill.sidebar-item-js(href='#')
+		+e.pill.ball-item-js(href='#')
 			+e.content
 				+e.ball.sidebar-ball-js
 				+e.img
 					img(loading="lazy" src=`img/svg/headerbl-${imgNum}.svg` alt="")
 				+e.name=name
-				+e.tracker.sidebar-trakcer-js
+			.ball-tracker-js

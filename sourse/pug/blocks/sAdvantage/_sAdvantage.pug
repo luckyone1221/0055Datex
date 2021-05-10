@@ -49,10 +49,12 @@ mixin sAdvantage(data)
 	// end sAdvantage
 
 mixin sAdvantageItem(imgNum)
-	+e.item
+	+e.item.ball-item-js
+		.ball-tracker-js
 		+e.row.row.align-items-center
 			+e.txt-col.col-auto.text-center.text-md-start
 				block
 			.col
 				+e.img
 					img(loading="lazy" src=`img/svg/sAdvantage-${imgNum}.svg` alt="")
+		.sidebar-ball-js

@@ -1,5 +1,7 @@
 // start .sVersions
 .sVersions {
+	overflow: hidden;
+
 	--sPT: #{rem(30)};
 	--sTPB: #{rem(58px)};
 	--sPB: #{rem(80)};
@@ -40,7 +42,7 @@
 	}
 
 	&__container{
-
+		position: relative;
 	}
 	.section-title{
 		h2{
@@ -59,7 +61,8 @@
 		}
 	}
 	&__items{
-		padding-bottom: rem(60);
+		position: relative;
+		margin-bottom: rem(60);
 	}
 	&__item{
 		&.gradient-border{
@@ -69,7 +72,7 @@
 			&:after{
 				content: '';
 				position: absolute;
-				z-index: -1;
+				z-index: -2;
 				border-radius: inherit;
 				background: $gray-520;
 				top: 1px;
@@ -85,7 +88,8 @@
 			background: linear-gradient(90deg, #F5CB35 0%, #DB1E32 100%);
 		}
 
-		position: relative;
+		//position: relative;
+		//z-index: 1;
 
 		background: $gray-520;
 		border-radius: rem(15);
@@ -348,6 +352,77 @@
 			}
 		}
 	}
+
 	//
+	&__aside-menu-cont{
+		position: absolute;
+		top: 0;
+		left: calc(100% + #{rem(42)});
+		height: 100%;
+		width: rem(200);
+
+		display: none;
+		@media (min-width: 1650px) {
+			display: block;
+		}
+	}
+	&__aside-menu{
+		transition: left .3s ease-in-out;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		//left: 0;
+		width: 100%;
+
+		left: 200px;
+		opacity: 0;
+		&.active{
+			left: 0;
+			opacity: 1;
+		}
+
+		ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			position: relative;
+			z-index: 1;
+			&:after{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				width: 1px;
+				height: 100%;
+				background-color: $input-border-color;
+			}
+
+			& > li{
+				margin-bottom: 17px;
+				& > a{
+					@include mt();
+					color: $gray-600;
+					display: block;
+					padding: 3.5px 23px;
+
+					border-left: 2px solid transparent;
+
+					&.active{
+						border-left: 2px solid $warning;
+						color: $headings-color;
+					}
+					&:hover{
+						color: $headings-color;
+					}
+
+				}
+			}
+		}
+	}
+	&__ball{
+
+	}
 	&__{}
 } // end.sVersions
