@@ -17,6 +17,10 @@
 		border-bottom: 1px solid $gray-550;
 	}
 
+	&.spaced-right{
+		width: calc(100% - var(--spacing-end));
+	}
+
 	&__container{
 		padding: 0 rem(18);
 		@include media-breakpoint-up(md){
@@ -113,59 +117,6 @@
 		@extend .btn;
 		@extend .btn-outline-danger;
 	}
-	&__menu-btn{
-		@include mt();
-		position: relative;
-		z-index: 1001;
-
-		cursor: pointer;
-		width: rem(45);
-		height: rem(45);
-		border-radius: 50%;
-		background: $gray-500;
-		&:hover{
-			background: $white;
-		}
-
-		span,
-		span:before,
-		span:after{
-			content: '';
-			@include mt();
-			position: absolute;
-			width: rem(20);
-			height: 2px;
-			background-color: $body-color;
-		}
-
-		span{
-			top: calc(50% - 1px);
-			left: rem(13);
-		}
-		span:before{
-			top: 7px;
-			left: 0;
-		}
-		span:after{
-			top: -7px;
-			left: 0;
-		}
-
-		&.active{
-			span:after{
-				transform: rotate(-45deg);
-				top: 0;
-			}
-			span:before{
-				transform: rotate(45deg);
-				top: 0;
-			}
-
-			span{
-				background-color: transparent;
-			}
-		}
-	}
 	&__mob-call{
 		@extend .btn;
 		@extend .btn-outline-danger;
@@ -222,7 +173,25 @@
 	justify-content: center;
 	flex-direction: column;
 
+	.menu-burger{
+		position: absolute;
+		top: rem(30);
+		transform: translateX(calc(var(--spacing-end) * -1));
 
+		right: rem(18);
+		@include media-breakpoint-up(md){
+			right: rem(24);
+		}
+		@include media-breakpoint-up(lg){
+			right: rem(40);
+		}
+		@include media-breakpoint-up(xl){
+			right: rem(50);
+		}
+		@include media-breakpoint-up(xxl){
+			right: rem(60);
+		}
+	}
 	&__menu{
 
 		.navMenu{
@@ -236,12 +205,16 @@
 					margin: 0;
 				}
 
-				--link-col: #{$body-color};
-				&:nth-child(2){
-					--link-col: #{linear-gradient(90deg, $yellow 0%, $red 100%)};
-				}
+				//--link-col: #{$body-color};
+				//&:nth-child(2){
+				//	--link-col: #{linear-gradient(90deg, $yellow 0%, $red 100%)};
+				//}
 			}
 			&__link{
+				--link-col: #{$body-color};
+				&.active{
+					--link-col: #{linear-gradient(90deg, $yellow 0%, $red 100%)};
+				}
 				display: inline-block;
 				text-align: left;
 				padding: 0;
@@ -263,4 +236,58 @@
 	}
 	&__{}
 	&__{}
+}
+
+.menu-burger{
+	@include mt();
+	position: relative;
+	z-index: 1001;
+
+	cursor: pointer;
+	width: rem(45);
+	height: rem(45);
+	border-radius: 50%;
+	background: $gray-500;
+	&:hover{
+		background: $white;
+	}
+
+	span,
+	span:before,
+	span:after{
+		content: '';
+		@include mt();
+		position: absolute;
+		width: rem(20);
+		height: 2px;
+		background-color: $body-color;
+	}
+
+	span{
+		top: calc(50% - 1px);
+		left: rem(13);
+	}
+	span:before{
+		top: 7px;
+		left: 0;
+	}
+	span:after{
+		top: -7px;
+		left: 0;
+	}
+
+	&.active{
+		span:after{
+			transform: rotate(-45deg);
+			top: 0;
+		}
+		span:before{
+			transform: rotate(45deg);
+			top: 0;
+		}
+
+		span{
+			background-color: transparent;
+		}
+	}
 }

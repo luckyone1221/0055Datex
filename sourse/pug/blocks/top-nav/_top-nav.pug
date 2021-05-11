@@ -22,10 +22,10 @@ mixin top-nav()
 					+e.tel(href='tel:+78463004840') +7 (846) 300 48 40
 					+e.shedule Пн-Пт 9:00 - 18:00
 				.col-auto.d-none.d-lg-block
-					+e.btn(href='#')
-						sapn Перезвоните мне
+					+e.btn.link-modal-js(href='#modal-call')
+						span Перезвоните мне
 				.col-auto
-					+e.menu-btn.burger-js
+					.menu-burger.burger-js
 						span
 	// end top-nav
 
@@ -36,5 +36,7 @@ mixin socItem(iconName)
 
 mixin mobMenu()
 	+b.mob-menu--js
+		.menu-burger.burger-js
+			span
 		+e.menu
 			+mnu()

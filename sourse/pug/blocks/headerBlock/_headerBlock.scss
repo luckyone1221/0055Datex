@@ -74,6 +74,11 @@
 		}
 		h1{
 			margin-bottom: rem(40);
+			&:after{
+				@include media-breakpoint-up(lg){
+					margin-left: 0;
+				}
+			}
 		}
 		p{
 			font-size: rem(18);

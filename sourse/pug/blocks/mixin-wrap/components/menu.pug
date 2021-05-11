@@ -1,17 +1,17 @@
 mixin mnu()
 	-
 		var nav= {
-			"В начало":"#",
-			"Возможности":"#",
-			"Версии":"#",
-			"Мобильное приложение":"#",
-			"Преимущества":"#",
-			"Демонстрация":"#",
-			"Клиенты":"#",
-			"Ответы на вопросы":"#",
-			"Контакты":"#",
+			"В начало":"#headerBlock",
+			"Возможности":"#sOpportunities",
+			"Версии":"#sVersions",
+			"Мобильное приложение":"#sApp",
+			"Преимущества":"#sAdvantage",
+			"Демонстрация":"#sDemonstration",
+			"Клиенты":"#sClients",
+			"Ответы на вопросы":"#sQuestions",
+			"Контакты":"#footer",
 		}
 	+b.UL.navMenu
 		each linkPatch, linkName in nav
-			+e.LI.item( temprop="item" itemprop="url"): +e.A.link(href="#" itemprop="url")= linkName
+			+e.LI.item: +e.A.link--js(href=linkPatch)= linkName
 //- /menu

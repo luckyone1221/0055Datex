@@ -34,12 +34,14 @@ const JSCCommon = {
 					// ZOOM: "Zoom"
 				},
 			},
-			// beforeLoad: function () {
-			// 	root.style.setProperty('--spacing-end', scrollWidth + 'px');
-			// },
-			// afterClose: function () {
-			// 	root.style.setProperty('--spacing-end', null);
-			// },
+			beforeLoad: function () {
+				$('.top-nav').addClass('spaced-right');
+				console.log('open');
+			},
+			afterClose: function () {
+				$('.top-nav').removeClass('spaced-right');
+				console.log('close');
+			},
 		});
 		$(".modal-close-js").click(function () {
 			$.fancybox.close();
@@ -71,64 +73,11 @@ const JSCCommon = {
 		if (linkModal) addData();
 	},
 	// /modalCall
-	// /tabs
-
-	inputMask() {
-		// mask for input
-		let InputTel = [].slice.call(document.querySelectorAll('input[type="tel"]'));
-		InputTel.forEach(element => element.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}"));
-		Inputmask("+9(999)999-99-99").mask(InputTel);
-	},
-	// /inputMask
 	ifie() {
 		var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 		if (isIE11) {
 			document.body.insertAdjacentHTML("beforeend", '<div class="browsehappy">	<p class=" container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p></div>');
 		}
-	},
-	sendForm() {
-		var gets = (function () {
-			var a = window.location.search;
-			var b = new Object();
-			var c;
-			a = a.substring(1).split("&");
-			for (var i = 0; i < a.length; i++) {
-				c = a[i].split("=");
-				b[c[0]] = c[1];
-			}
-			return b;
-		})();
-		// form
-		$(document).on('submit', "form", function (e) {
-			e.preventDefault();
-			const th = $(this);
-			var data = th.serialize();
-			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
-			$.ajax({
-				url: 'action.php',
-				type: 'POST',
-				data: data,
-			}).done(function (data) {
-
-				$.fancybox.close();
-				$.fancybox.open({
-					src: '#modal-thanks',
-					type: 'inline'
-				});
-				// window.location.replace("/thanks.html");
-				setTimeout(function () {
-					// Done Functions
-					th.trigger("reset");
-					// $.magnificPopup.close();
-					// ym(53383120, 'reachGoal', 'zakaz');
-					// yaCounter55828534.reachGoal('zakaz');
-				}, 4000);
-			}).fail(function () { });
-
-		});
 	},
 	heightwindow() {
 		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -143,11 +92,6 @@ const JSCCommon = {
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		}, { passive: true });
 	},
-	getCurrentYear(el) {
-		let now = new Date();
-		let currentYear = document.querySelector(el);
-		if (currentYear) currentYear.innerText = now.getFullYear();
-	}
 };
 const $ = jQuery;
 
@@ -156,17 +100,7 @@ function eventHandler() {
 
 	JSCCommon.ifie();
 	JSCCommon.modalCall();
-	JSCCommon.inputMask();
-	JSCCommon.sendForm();
 	JSCCommon.heightwindow();
-
-	// JSCCommon.CustomInputFile(); 
-	var x = window.location.host;
-	let screenName;
-	screenName = document.body.dataset.bg || '01-1280.png';
-	if (screenName && x.includes("localhost:30")) {
-		document.body.insertAdjacentHTML("beforeend", `<div class="pixel-perfect" style="background-image: url(screen/${screenName});"></div>`);
-	}
 
 	function setFixedNav() {
 		let topNav = document.querySelector('.top-nav');
@@ -211,23 +145,33 @@ function eventHandler() {
 
 	//mob menu
 	$('.burger-js').click(function (){
-		$(this).toggleClass('active');
+		$('.burger-js').toggleClass('active');
 		$('.mob-menu--js').toggleClass('active');
 		$('body').toggleClass('fixed');
+		$('.top-nav').toggleClass('spaced-right');
 	});
 	function mobMenuMissClick(){
 		if(!event.target.closest('.mob-menu--js') && !event.target.closest('.burger-js')){
-			$('.burger-js').removeClass('active');
-			$('body').removeClass('fixed');
-			$('.mob-menu--js').removeClass('active');
+			closeMobMenu();
 		}
 	}
+	function closeMobMenu(){
+		$('.burger-js').removeClass('active');
+		$('body').removeClass('fixed');
+		$('.mob-menu--js').removeClass('active');
+		$('.top-nav').removeClass('spaced-right');
+	}
 	document.body.addEventListener('click', mobMenuMissClick);
+	$('.navMenu__link').click(function (){
+		$('.navMenu__link').removeClass('active');
+		$(this).addClass('active');
+		closeMobMenu();
+	});
 
 	//typeIt
 	$('.typeit-red-js').each(function (){
 		//take the string, no subTags allow this way
-		let thisTxt = this.innerHTML;
+		let thisTxt = this.getAttribute('data-type-txt') || this.innerHTML;
 		//define how many symbs there are
 		let thisLength = this.innerHTML.length
 		//define speed
@@ -264,6 +208,10 @@ function eventHandler() {
 	// we'd only like to use iScroll for mobile...
 	var controller = new ScrollMagic.Controller();
 	if (!isMobile) {
+		let windowWidth = window.innerWidth;
+		let slideW = $("#sOpportunities  .swiper-wrapper").width();
+		let delta = slideW - windowWidth + 200;
+
 		var wipeAnimation = new TimelineMax().to("#sOpportunities  .swiper-wrapper", 1, { x: "-360%" });
 
 		// create scene to pin and link animation
@@ -278,6 +226,7 @@ function eventHandler() {
 			.addTo(controller);
 
 	};
+
 
 	//sClients
 	let sClientsSlider = {
@@ -387,9 +336,13 @@ function eventHandler() {
 
 	//aside-menu-js
 	let sidebarItems = document.querySelectorAll('.sidebar-box-js');
-	let sidebar = document.querySelector('.aside-menu-js');
-	let boxParent = sidebarItems[0].parentElement;
-	let sidebarLinks = document.querySelectorAll('.aside-menu-js > ul > li > a');
+	let sidebar, boxParent, sidebarLinks;
+	if (sidebarItems[0]){
+		sidebar = document.querySelector('.aside-menu-js');
+		boxParent = sidebarItems[0].parentElement;
+		sidebarLinks = document.querySelectorAll('.aside-menu-js > ul > li > a');
+	}
+
 	let sideBarItemsMiddle = [];
 
 	//vanilla scrollLik
@@ -435,7 +388,7 @@ function eventHandler() {
 
 		return { top: Math.round(top), left: Math.round(left) };
 	}
-	smoothScroll('.aside-menu-js > ul > li > a');
+	smoothScroll('.aside-menu-js > ul > li > a, .navMenu__link');
 
 	function setSBItemMiddle(){
 		for(let item of sidebarItems){
@@ -443,7 +396,7 @@ function eventHandler() {
 		}
 	}
 
-	if (sidebarLinks.length > 0 && sidebarItems.length > 0){
+	if (sidebarItems.length > 0 && sidebarLinks.length > 0){
 		window.addEventListener('resize', function (){
 			setSBItemMiddle();
 		}, {passive: true});
@@ -489,20 +442,9 @@ function eventHandler() {
 		}, {passive: true});
 	}
 	//end luckyone js
-
-	//todo
-	// 1. uncomment and clean js file
 };
 if (document.readyState !== 'loading') {
 	eventHandler();
 } else {
 	document.addEventListener('DOMContentLoaded', eventHandler);
 }
-
-// window.onload = function () {
-// 	document.body.classList.add('loaded_hiding');
-// 	window.setTimeout(function () {
-// 		document.body.classList.add('loaded');
-// 		document.body.classList.remove('loaded_hiding');
-// 	}, 500);
-// }

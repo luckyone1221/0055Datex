@@ -5,8 +5,12 @@
 		<title>title</title>
 		<meta name="description" content="о чем страница">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0">
-		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"> <link rel="preconnect" href="https://fonts.gstatic.com">
+		<meta content="width=570,  maximum-scale=1 , user-scalable=no" name="viewport">
+		<script>
+			let viewport = document.querySelector("meta[name=viewport]");
+			if (window.innerWidth > 570) viewport.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		</script>
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"><link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<link href="libs/@fancyapps/fancybox/jquery.fancybox.min.css" rel="stylesheet"/>
 		<link href="css/main.min.css" rel="stylesheet"/>
@@ -15,25 +19,26 @@
 		<div class="main-wrapper">
 			<!--+header()-->
 			<div class="mob-menu mob-menu--js">
+				<div class="menu-burger burger-js"><span></span></div>
 				<div class="mob-menu__menu">
 					<ul class="navMenu">
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">В начало</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#headerBlock">В начало</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Возможности</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sOpportunities">Возможности</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Версии</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sVersions">Версии</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Мобильное приложение</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sApp">Мобильное приложение</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Преимущества</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sAdvantage">Преимущества</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Демонстрация</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sDemonstration">Демонстрация</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Клиенты</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sClients">Клиенты</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Ответы на вопросы</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#sQuestions">Ответы на вопросы</a>
 						</li>
-						<li class="navMenu__item" temprop="item" itemprop="url"><a class="navMenu__link" href="#" itemprop="url">Контакты</a>
+						<li class="navMenu__item"><a class="navMenu__link navMenu__link--js" href="#footer">Контакты</a>
 						</li>
 					</ul>
 				</div>
@@ -71,12 +76,10 @@
 							<div class="top-nav__shedule">Пн-Пт 9:00 - 18:00
 							</div>
 						</div>
-						<div class="col-auto d-none d-lg-block"><a class="top-nav__btn" href="#">
-							<sapn>Перезвоните мне</sapn></a>
+						<div class="col-auto d-none d-lg-block"><a class="top-nav__btn link-modal-js" href="#modal-call"><span>Перезвоните мне</span></a>
 						</div>
 						<div class="col-auto">
-							<div class="top-nav__menu-btn burger-js"><span></span>
-							</div>
+							<div class="menu-burger burger-js"><span></span></div>
 						</div>
 					</div>
 				</div>
@@ -86,13 +89,15 @@
 				<div class="container">
 					<div class="row gy-3">
 						<div class="col-auto"><a class="btn btn-primary link-modal-js" href="#modal-trade">Торговля</a></div>
+						<!--++-->
 						<div class="col-auto"><a class="btn btn-primary link-modal-js" href="#modal-compare">Сравнение версий</a></div>
+						<!--++-->
 						<div class="col-auto"><a class="btn btn-primary link-modal-js" href="#modal-call">Заказать звонок</a></div>
 						<div class="col-auto"><a class="btn btn-primary link-modal-js" href="#modal-thanks">Спасибо за обращение!</a></div>
 					</div>
 				</div>
 			</div>
-			<footer class="footer">
+			<footer class="footer" id="footer">
 				<div class="container">
 					<div class="footer__numbers"><a class="footer__number" href="tel:+78463004840">+7 (846) 300 48 40</a>
 					</div>
@@ -540,7 +545,7 @@
 					<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="text" type="text" placeholder="Ваше имя"/>
 					</div>
 					<!-- +e.input-wrap-->
-					<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="tell" type="tell" placeholder="Ваш телефон"/>
+					<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="tel" type="tel" placeholder="Ваш телефон"/>
 					</div>
 					<!-- +e.input-wrap-->
 					<div class="form-wrap__polite">

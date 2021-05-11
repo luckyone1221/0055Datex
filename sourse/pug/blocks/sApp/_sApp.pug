@@ -5,7 +5,9 @@ mixin sApp(data)
 		.container
 			+e.row.row
 				+e.pic-col.col-md-auto.order-last.order-md-0
-					+pic('sApp-phone2', undefined, 0).sApp__tell
+					//+pic('sApp-phone2', undefined, 0).sApp__tell
+					+e.tell
+						img(loading="lazy" src='img/@2x/sApp-phone2.png' alt="")
 				+e.txt-col.col-md.text-center.text-md-start
 					+b.section-title
 						h2 Мобильное приложение 1С:УНФ
