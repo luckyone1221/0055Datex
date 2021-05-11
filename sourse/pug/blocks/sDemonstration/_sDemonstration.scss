@@ -13,6 +13,35 @@
 
   position: relative;
   z-index: 1;
+  &__canvas{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__plane {
+    /* define the size of your plane */
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    //width: 80%;
+    //height: 80vh;
+    //margin: 10vh auto;
+
+    img {
+      /* hide the img element */
+      display: none;
+    }
+  }
+
+
   &__bg{
     position: absolute;
     top: 0;

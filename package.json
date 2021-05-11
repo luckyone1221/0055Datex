@@ -58,12 +58,13 @@
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
+    "curtainsjs": "^8.1.2",
+    "gsap": "^3.6.1",
     "inputmask": "^5.0.5",
     "jquery": "^3.5.1",
     "loading-attribute-polyfill": "^1.5.4",
+    "scrollmagic": "^2.0.8",
     "swiper": "^6.5.9",
-    "typeit": "^7.0.4",
-    "gsap": "^3.6.1",
-    "scrollmagic": "^2.0.8"
+    "typeit": "^7.0.4"
   }
 }

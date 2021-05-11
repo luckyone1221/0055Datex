@@ -1,7 +1,10 @@
-mixin sDemonstration(imgName='sDemo-bg')
+mixin sDemonstration(imgName='sDemo-bg', bgId)
 	// start sDemonstration
 	+b.SECTION.sDemonstration.section&attributes(attributes)
-		+pic(imgName).sDemonstration__bg
+		//+e.canvas#canvas
+		//+e.plane.plane#my-plane
+		//	img(loading='lazy' src=`img/@2x/${imgName}.jpg` alt="")
+		+pic(imgName).sDemonstration__bg(id=bgId)
 		.container
 			+b.section-title.text-center
 				if block

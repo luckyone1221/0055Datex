@@ -70,6 +70,7 @@
 }
 
 .modal-trade{
+	background: $gray-520;
 	@include media-breakpoint-up(md){
 		--sliders-px: #{rem(62)};
 	}
@@ -90,7 +91,6 @@
 		@include media-breakpoint-up(md){
 			background: $dark;
 			color: $white;
-
 			padding: rem(48) var(--sliders-px);
 		}
 		margin-bottom: rem(60);
@@ -136,6 +136,11 @@
 
 		}
 	}
+	&__slide-txt{
+		line-height: 1.25;
+		min-height: rem(40);
+		margin-bottom: rem(4);
+	}
 	&__thumb{
 		.swiper-container{
 
@@ -144,7 +149,7 @@
 
 		}
 		.swiper-slide{
-			width: calc((100% / 8) - (12px * 7 / 8));
+			width: calc((100% / 7) - (12px * 6 / 7));
 			height: auto;
 
 			--pic-after-o: 0;
@@ -194,7 +199,8 @@
 			line-height: 2;
 			margin-bottom: rem(40);
 		}
-		& > *{
+
+		& > *:last-child{
 			margin-bottom: 0;
 		}
 	}
@@ -334,6 +340,25 @@
 		&__polite-txt{
 			font-size: rem(14);
 			line-height: 1.75;
+
+			a{
+				display: inline-block;
+				position: relative;
+				&:after{
+					content: '';
+					position: absolute;
+					top: calc(100% - 2px);
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background-color: currentColor;
+				}
+
+				color: $red;
+				&:hover{
+					color: $red2;
+				}
+			}
 		}
 		&__btn-cont{
 

@@ -183,35 +183,34 @@ function eventHandler() {
 		let thisTypeIt = new TypeIt(this, {
 			strings: '',
 			speed: speed,
-			waitUntilVisible: true
+			waitUntilVisible: true,
+			loop: true,
+			loopDelay: 2000,
 		}).go();
 
 		//await untill all printed + 2sec, then restart, it will work with sting of any .length
-		window.setInterval(function (){
-			thisTypeIt.reset();
-			thisTypeIt.go();
-		}, typeTime + 2000)
+		// window.setInterval(function (){
+		// 	//thisTypeIt.reset();
+		// 	//thisTypeIt.go();
+		// }, typeTime + 2000)
 	})
 
-	let sOpportunitiesSlider = new Swiper('.sOpportunities-slider-js', {
-		slidesPerView: 'auto',
-		breakpoints: {
-			0: {
-				spaceBetween: 0,
+	if (isMobile) {
+		let sOpportunitiesSlider = new Swiper('.sOpportunities-slider-js', {
+			slidesPerView: 'auto',
+			breakpoints: {
+				0: {
+					spaceBetween: 0,
+				},
+				// 992: {
+				// 	spaceBetween: 20,
+				// },
 			},
-			992: {
-				spaceBetween: 20,
-			},
-		},
-	});
-
+		});
+	}
 	// we'd only like to use iScroll for mobile...
 	var controller = new ScrollMagic.Controller();
 	if (!isMobile) {
-		let windowWidth = window.innerWidth;
-		let slideW = $("#sOpportunities  .swiper-wrapper").width();
-		let delta = slideW - windowWidth + 200;
-
 		var wipeAnimation = new TimelineMax().to("#sOpportunities  .swiper-wrapper", 1, { x: "-360%" });
 
 		// create scene to pin and link animation
@@ -402,45 +401,79 @@ function eventHandler() {
 		}, {passive: true});
 		setSBItemMiddle();
 	}
+	document.addEventListener('scroll', function (){
+		if (isMobile) return
+		let scrollTop = window.scrollY;
 
-	if (!isMobile) {
-		document.addEventListener('scroll', function (){
-			let scrollTop = window.scrollY;
+		//it calc window.scrollY
+		let parentTop = boxParent.getBoundingClientRect().top + window.scrollY;
 
-			//it calc window.scrollY
-			let parentTop = boxParent.getBoundingClientRect().top + window.scrollY;
+		let lastItemH = sidebarItems[sidebarItems.length - 1].offsetHeight;
+		let headerHeight = topNav.offsetHeight;
+		let scrolledToContainer = scrollTop + headerHeight + 30 > parentTop;
+		let scrolledOverLastItem = scrollTop + headerHeight < parentTop + boxParent.offsetHeight - lastItemH - 30;
 
-			let lastItemH = sidebarItems[sidebarItems.length - 1].offsetHeight;
-			let headerHeight = topNav.offsetHeight;
-			let scrolledToContainer = scrollTop + headerHeight + 30 > parentTop;
-			let scrolledOverLastItem = scrollTop + headerHeight < parentTop + boxParent.offsetHeight - lastItemH - 30;
+		if (scrolledToContainer && scrolledOverLastItem){
+			sidebar.style.top =  (scrollTop + headerHeight + 30 - parentTop) + 'px';
+		}
+		if (scrolledOverLastItem){
+			sidebar.classList.add('active');
+		}
+		else{
+			sidebar.classList.remove('active');
+		}
 
-			if (scrolledToContainer && scrolledOverLastItem){
-				sidebar.style.top =  (scrollTop + headerHeight + 30 - parentTop) + 'px';
-			}
-			if (scrolledOverLastItem){
-				sidebar.classList.add('active');
+		for(let [index, middle] of Object.entries(sideBarItemsMiddle)){
+			let prev;
+			if (index == 0){
+				prev = 0;
 			}
 			else{
-				sidebar.classList.remove('active');
+				prev = sideBarItemsMiddle[index - 1];
 			}
 
-			for(let [index, middle] of Object.entries(sideBarItemsMiddle)){
-				let prev;
-				if (index == 0){
-					prev = 0;
-				}
-				else{
-					prev = sideBarItemsMiddle[index - 1];
-				}
-
-				if (scrollTop < middle && scrollTop > prev){
-					$(sidebarLinks).removeClass('active');
-					sidebarLinks[index].classList.add('active');
-				}
+			if (scrollTop < middle && scrollTop > prev){
+				$(sidebarLinks).removeClass('active');
+				sidebarLinks[index].classList.add('active');
 			}
-		}, {passive: true});
-	}
+		}
+	}, {passive: true});
+	//curtain js
+	//.sDemonstration__bg
+	// let allCurtainBg = document.querySelectorAll('.sDemonstration__bg');
+	// for (let item of allCurtainBg){
+	//
+	// }
+	const curtains = new Curtains({
+		container: 'curtainBg-1'
+	});
+	const plane = new Plane(curtains, document.getElementById("my-plane"));
+
+	// const curtains = new Curtains({
+	// 	container: "canvas"
+	// });
+	// // get our plane element
+	// const planeElement = document.getElementsByClassName("plane")[0];
+	// // set our initial parameters (basic uniforms)
+	// const params = {
+	// 	vertexShaderID: "plane-vs", // our vertex shader ID
+	// 	fragmentShaderID: "plane-fs", // our fragment shader ID
+	// 	uniforms: {
+	// 		time: {
+	// 			name: "uTime", // uniform name that will be passed to our shaders
+	// 			type: "1f", // this means our uniform is a float
+	// 			value: 0,
+	// 		},
+	// 	},
+	// };
+	// // create our plane using our curtains object, the HTML element and the parameters
+	// const plane = new Plane(curtains, planeElement, params);
+	// plane.onRender(() => {
+	// // use the onRender method of our plane fired at each requestAnimationFrame call
+	// 	plane.uniforms.time.value++; // update our time uniform value
+	// });
+
+
 	//end luckyone js
 };
 if (document.readyState !== 'loading') {
