@@ -49,6 +49,8 @@
 			font-size: rem(60);
 			line-height: (73/60);
 		}
+
+		@extend .blesk;
 	}
 	&__connect-txt{
 		text-align: center;

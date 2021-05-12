@@ -198,11 +198,7 @@ function eventHandler() {
 			waitUntilVisible: true,
 			loop: true,
 			loopDelay: 2000
-		}).go(); //await untill all printed + 2sec, then restart, it will work with sting of any .length
-		// window.setInterval(function (){
-		// 	//thisTypeIt.reset();
-		// 	//thisTypeIt.go();
-		// }, typeTime + 2000)
+		}).go();
 	});
 
 	if (isMobile) {
@@ -411,7 +407,7 @@ function eventHandler() {
 		let lastItemH = sidebarItems[sidebarItems.length - 1].offsetHeight;
 		let headerHeight = topNav.offsetHeight;
 		let scrolledToContainer = scrollTop + headerHeight + 30 > parentTop;
-		let scrolledOverLastItem = scrollTop + headerHeight < parentTop + boxParent.offsetHeight - lastItemH - 30;
+		let scrolledOverLastItem = scrollTop + headerHeight < parentTop + boxParent.offsetHeight - lastItemH * 2 / 3 - 30;
 
 		if (scrolledToContainer && scrolledOverLastItem) {
 			sidebar.style.top = scrollTop + headerHeight + 30 - parentTop + 'px';
@@ -439,40 +435,20 @@ function eventHandler() {
 		}
 	}, {
 		passive: true
-	}); //curtain js
-	//.sDemonstration__bg
-	// let allCurtainBg = document.querySelectorAll('.sDemonstration__bg');
-	// for (let item of allCurtainBg){
-	//
-	// }
+	}); //wow
 
-	const curtains = new Curtains({
-		container: 'curtainBg-1'
-	});
-	const plane = new Plane(curtains, document.getElementById("my-plane")); // const curtains = new Curtains({
-	// 	container: "canvas"
-	// });
-	// // get our plane element
-	// const planeElement = document.getElementsByClassName("plane")[0];
-	// // set our initial parameters (basic uniforms)
-	// const params = {
-	// 	vertexShaderID: "plane-vs", // our vertex shader ID
-	// 	fragmentShaderID: "plane-fs", // our fragment shader ID
-	// 	uniforms: {
-	// 		time: {
-	// 			name: "uTime", // uniform name that will be passed to our shaders
-	// 			type: "1f", // this means our uniform is a float
-	// 			value: 0,
-	// 		},
-	// 	},
-	// };
-	// // create our plane using our curtains object, the HTML element and the parameters
-	// const plane = new Plane(curtains, planeElement, params);
-	// plane.onRender(() => {
-	// // use the onRender method of our plane fired at each requestAnimationFrame call
-	// 	plane.uniforms.time.value++; // update our time uniform value
-	// });
-	//end luckyone js
+	window.onload = function () {
+		document.body.classList.remove("loaded_hiding");
+		let wow = new WOW({
+			// mobile: false,
+			animateClass: 'animate__animated'
+		});
+		setTimeout(() => {
+			//$('.top-nav').removeClass("opacity-0");
+			wow.init();
+		}, 1000);
+	}; //end luckyone js
+
 }
 
 ;
@@ -481,4 +457,6 @@ if (document.readyState !== 'loading') {
 	eventHandler();
 } else {
 	document.addEventListener('DOMContentLoaded', eventHandler);
-}
+} // $('document').load(function (){
+// 	document.body.classList.remove("loaded_hiding");
+// })

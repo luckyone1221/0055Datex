@@ -30,12 +30,14 @@ html(lang="ru")
 			if (window.innerWidth > 570) viewport.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
 		link(type="image/ico", href='img/favicon.ico', rel='shortcut icon')
 		<meta name="format-detection" content="telephone=no">
+		//-
+		<style>body::after { content: '';position: fixed;left: 0;top: 0;width: 100%;z-index: 2000;height: 100%;background-color: #FDFBF9;}</style>
 		+allcss()
 	block variables
 	//- style.
 	//- 	.loaded_hiding {  opacity: 0; pointer-events: none;  } .loaded_hiding::before { display: none; }
 	//- body.loaded_hiding(class= mainPage) 
-	body(class= mainPage data-bg= bg)
+	body.loaded_hiding(class= mainPage data-bg= bg)
 		.main-wrapper
 			block pagecontent
 				h3 content

@@ -734,3 +734,11 @@ h2{
 	background-size: rem(12);
 
 }
+//
+body:not(.loaded_hiding):after {
+	--s: 1s;
+	-webkit-transition: all var(--s) ease-in-out;
+	transition: all var(--s) ease-in-out;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
