@@ -368,7 +368,7 @@
 		}
 	}
 	&__aside-menu{
-		transition: left .3s ease-in-out;
+		transition: opacity .3s ease-in-out;
 		position: absolute;
 		z-index: 1;
 		top: 0;
@@ -380,6 +380,11 @@
 		&.active{
 			left: 0;
 			opacity: 1;
+		}
+		&.fixed{
+			position: fixed;
+			top: calc(var(--top-nav-height) + 30px);
+			left: calc(var(--aside-cont-left));
 		}
 
 		ul{

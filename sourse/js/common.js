@@ -320,8 +320,10 @@ function eventHandler() {
 	});
 
 	let topNav = document.querySelector(".top-nav--js");
+	let asideCont = document.querySelector(".aside-menu-cont-js");
 	function calcHeaderHeight() {
 		document.documentElement.style.setProperty('--top-nav-height', `${topNav.offsetHeight}px`);
+		document.documentElement.style.setProperty('--aside-cont-left', `${getCoords(asideCont).left}px`);
 	}
 	window.addEventListener('resize', calcHeaderHeight, { passive: true });
 	window.addEventListener('scroll', calcHeaderHeight, { passive: true });
@@ -408,7 +410,11 @@ function eventHandler() {
 		let scrolledOverLastItem = scrollTop + headerHeight < parentTop + boxParent.offsetHeight - (lastItemH * 2 / 3) - 30;
 
 		if (scrolledToContainer && scrolledOverLastItem){
-			sidebar.style.top =  (scrollTop + headerHeight + 30 - parentTop) + 'px';
+			//sidebar.style.top =  (scrollTop + headerHeight + 30 - parentTop) + 'px';
+			sidebar.classList.add('fixed');
+		}
+		else{
+			sidebar.classList.remove('fixed');
 		}
 		if (scrolledOverLastItem){
 			sidebar.classList.add('active');
@@ -416,6 +422,9 @@ function eventHandler() {
 		else{
 			sidebar.classList.remove('active');
 		}
+	});
+	document.addEventListener('scroll', function (){
+		let scrollTop = window.scrollY;
 
 		for(let [index, middle] of Object.entries(sideBarItemsMiddle)){
 			let prev;
