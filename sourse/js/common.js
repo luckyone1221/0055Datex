@@ -203,9 +203,9 @@ function eventHandler() {
 		});
 	}
 	// we'd only like to use iScroll for mobile...
-	var controller = new ScrollMagic.Controller();
+	let controller = new ScrollMagic.Controller();
 	if (!isMobile) {
-		var wipeAnimation = new TimelineMax().to("#sOpportunities  .swiper-wrapper", 1, { x: "-360%" });
+		let wipeAnimation = new TimelineMax().to("#sOpportunities  .swiper-wrapper", 1, { x: "-360%" ,  ease: Power0.easeNone});
 
 		// create scene to pin and link animation
 		new ScrollMagic.Scene({
@@ -441,11 +441,20 @@ function eventHandler() {
 			animateClass: 'animate__animated',
 		});
 		setTimeout(() => {
-			//$('.top-nav').removeClass("opacity-0");
 			wow.init();
 		}, 1000);
 	};
 
+	//
+	window.addEventListener('wheel', function (evt) {
+		let topNav = document.querySelector(".top-nav")
+		if (evt.deltaY < 0 && evt.deltaY < topNav.offsetHeight ) {
+			topNav.classList.add("show");
+		}
+		else {
+			topNav.classList.remove("show");
+		}
+	});
 
 	//end luckyone js
 };
@@ -454,6 +463,3 @@ if (document.readyState !== 'loading') {
 } else {
 	document.addEventListener('DOMContentLoaded', eventHandler);
 }
-// $('document').load(function (){
-// 	document.body.classList.remove("loaded_hiding");
-// })

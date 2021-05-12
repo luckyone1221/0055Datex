@@ -4,7 +4,7 @@ mixin sDemonstration(imgName='sDemo-bg', bgId)
 		//+e.canvas#canvas
 		//+e.plane.plane#my-plane
 		//	img(loading='lazy' src=`img/@2x/${imgName}.jpg` alt="")
-		+pic(imgName).sDemonstration__bg(id=bgId)
+		+pic(imgName, undefined, 0).sDemonstration__bg(id=bgId)
 		.container
 			+b.section-title.text-center
 				if block

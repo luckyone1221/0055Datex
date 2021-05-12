@@ -1,10 +1,10 @@
 mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.section#headerBlock&attributes(attributes)
-		+pic('headerBl-bg-1.png')(class="headerBlock__bg headerBlock__bg--1 d-none d-xxl-block wow animate__fadeIn" data-wow-delay=".2s")
-		+pic('headerBl-bg-2.png')(class="headerBlock__bg headerBlock__bg--2 d-none d-xxl-block wow animate__fadeIn" data-wow-delay=".2s")
+		+pic('headerBl-bg-1.png')(class="headerBlock__bg headerBlock__bg--1 d-none d-base-block wow animate__fadeIn" data-wow-delay=".2s")
+		+pic('headerBl-bg-2.png')(class="headerBlock__bg headerBlock__bg--2 d-none d-base-block wow animate__fadeIn" data-wow-delay=".2s")
 		+e.container.container(data-wow-delay="2s")
-			+e.row.row(class="wow animate__fadeInUp")
+			+e.row.row(class="wow animate__fadeIn")
 				.col-lg-7.col-xl-6
 					+b.section-title.text-center.text-lg-start
 						+e.red.typeit-red-js(data-type-txt='Бесплатная доставка, установка, гарантия и бонусы') Бесплатная доставка, установка, гарантия и бонусы
@@ -15,7 +15,7 @@ mixin headerBlock()
 							+e.btn--buy(href='#') Купить
 						.col-6.col-md-auto
 							+e.btn--trail(href='#') 30 дней бесплатно
-			+e.pills-wrap(class="wow animate__fadeInUp" data-wow-delay=".4s")
+			+e.pills-wrap(class="wow animate__fadeIn" data-wow-delay=".4s")
 				+pic('headerBl-woman.png', undefined, 0)(class="headerBlock__woman")
 				+e.pills-row.row
 					+headerBlockPill(1, 'Производственные компании')
@@ -26,7 +26,7 @@ mixin headerBlock()
 
 mixin headerBlockPill(imgNum, name)
 	.col-6.col-lg-3
-		+e.pill.ball-item-js(href='#')
+		+e.pill.ball-item-js
 			+e.content
 				+e.ball.sidebar-ball-js
 				+e.img
