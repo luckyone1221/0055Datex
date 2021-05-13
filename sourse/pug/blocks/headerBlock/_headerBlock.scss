@@ -13,9 +13,13 @@
 		--sPB: #{rem(101px)};
 	}
 	@include media-breakpoint-up(xl){
-		--sPT: #{rem(70)};
+		--sPT: #{rem(40)};
 		--sPB: #{rem(109px)};
 	}
+	@include media-breakpoint-between(xl,xxl){
+		--sTPB: #{rem(20)};
+	}
+
 	@include media-breakpoint-up(xxl){
 		--sPB: #{rem(99px)};
 	}
@@ -50,6 +54,9 @@
 		@include media-breakpoint-up(xl){
 			padding-bottom: rem(100);
 		}
+		@include media-breakpoint-between(xl, xxl){
+			padding-bottom: rem(165);
+		}
 		position: relative;
 		z-index: 2;
 	}
@@ -68,6 +75,9 @@
 			@include media-breakpoint-up(lg){
 				margin-bottom: rem(34);
 			}
+			@include media-breakpoint-between(xl,xxl){
+				margin-bottom: rem(20);
+			}
 			@include media-breakpoint-up(xxl){
 				margin-bottom: rem(24);
 			}
@@ -75,6 +85,10 @@
 		h1{
 			margin-bottom: rem(40);
 			&:after{
+				@include media-breakpoint-between(xl,xxl){
+					margin-top: rem(20);
+				}
+
 				@include media-breakpoint-up(lg){
 					margin-left: 0;
 				}
