@@ -451,6 +451,7 @@ function eventHandler() {
 		});
 		setTimeout(() => {
 			wow.init();
+			wow.show(document.querySelector('.pills-wrap-js'));
 		}, 1000);
 	};
 

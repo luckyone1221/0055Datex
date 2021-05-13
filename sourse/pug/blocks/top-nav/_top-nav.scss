@@ -6,7 +6,8 @@
 	z-index: 100;
 
   //
-  @include mt();
+  //@include mt();
+	transition: all .3s ease-in-out, width 0s ease-in-out;
   &.fixed:not(.show){
     transform: translateY(-100%);
   }
@@ -169,7 +170,7 @@
 	}
 	@include media-breakpoint-up(xl){
 		width: rem(742);
-		padding: rem(80) rem(92);
+		padding: rem(60) rem(92);
 	}
 	@include media-breakpoint-up(xxl){
 		width: rem(960);
@@ -236,7 +237,10 @@
 			margin: 0;
 			&__item{
 				padding: 0;
-				margin: 0 0 rem(40);
+				margin: 0 0 rem(25);
+				@include media-breakpoint-up(base){
+					margin: 0 0 rem(40);
+				}
 				&:last-child{
 					margin: 0;
 				}
@@ -259,7 +263,10 @@
 				margin: 0;
 
 				font-weight: bold;
-				font-size: rem(40);
+				font-size: rem(35);
+				@include media-breakpoint-up(base){
+					font-size: rem(40);
+				}
 				line-height: 1;
 
 				background: var(--link-col, #{$body-color});
