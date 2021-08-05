@@ -1,0 +1,97 @@
+// start .sHeaderAlt
+.sHeaderAlt {
+	background: $white;
+	padding: rem(12px) 0;
+
+
+	&__row{
+		--bs-gutter-x: #{rem(24)};
+		@include media-breakpoint-up(lg){
+			--bs-gutter-x: #{rem(30)};
+		}
+		@include media-breakpoint-up(xl){
+			--bs-gutter-x: #{rem(40)};
+		}
+
+		--bs-gutter-y: #{rem(10)};
+	}
+	&__logo{
+		display: block;
+
+		width: rem(126);
+		@include media-breakpoint-up(xl){
+			width: rem(172);
+		}
+
+		img{
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__logo-txt{
+		font-size: rem(14);
+		line-height: 1.25;
+		color: $gray-640;
+	}
+	&__soc-row{
+		--bs-gutter-x: #{rem(10)};
+
+	}
+	&__soc-item{
+		width: rem(24);
+		height: rem(24);
+
+		@include mt();
+		&:hover{
+			transform: scale(1.08);
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	&__tel{
+		display: block;
+		font-weight: bold;
+		font-size: rem(16);
+		line-height: (19/16);
+		color: $body-color;
+
+		margin-bottom: rem(6);
+	}
+	&__shedule{
+		font-size: rem(14);
+		line-height: (17/14);
+		color: $gray-650;
+	}
+	&__btn{
+		@extend .btn;
+		@extend .btn-outline-danger;
+	}
+	&__mob-call{
+		@extend .btn;
+		@extend .btn-outline-danger;
+		padding: 0;
+		width: rem(45);
+		height: rem(45);
+		border-radius: rem(60)!important;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.icon{
+			font-size: rem(20);
+		}
+	}
+	&__{}
+	&__{}
+	&__{}
+} // end.sHeaderAlt

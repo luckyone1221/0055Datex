@@ -1,0 +1,8 @@
+mixin cModal(data)
+	// start cModal
+	+b.SECTION.cModal--js.section(id=data.modalId)&attributes(attributes)
+		if data.pbWidth
+			+e.proggress-bar(style=`width: calc(100% * ${data.pbWidth})`)
+		block
+
+	// end cModal

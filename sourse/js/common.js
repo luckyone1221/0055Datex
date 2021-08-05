@@ -102,6 +102,13 @@ function eventHandler() {
 	JSCCommon.modalCall();
 	JSCCommon.heightwindow();
 
+	var x = window.location.host;
+	let screenName;
+	screenName = document.body.dataset.bg;
+	if (screenName && x.includes("localhost:30")) {
+		document.body.insertAdjacentHTML("beforeend", `<div class="pixel-perfect" style="background-image: url(screen/${screenName});"></div>`);
+	}
+
 	function setFixedNav() {
 		let topNav = document.querySelector('.top-nav');
 		if (!topNav) return;
@@ -325,9 +332,11 @@ function eventHandler() {
 		document.documentElement.style.setProperty('--top-nav-height', `${topNav.offsetHeight}px`);
 		document.documentElement.style.setProperty('--aside-cont-left', `${getCoords(asideCont).left}px`);
 	}
-	window.addEventListener('resize', calcHeaderHeight, { passive: true });
-	window.addEventListener('scroll', calcHeaderHeight, { passive: true });
-	calcHeaderHeight();
+	if (asideCont && topNav){
+		window.addEventListener('resize', calcHeaderHeight, { passive: true });
+		window.addEventListener('scroll', calcHeaderHeight, { passive: true });
+		calcHeaderHeight();
+	}
 
 	//aside-menu-js
 	let sidebarItems = document.querySelectorAll('.sidebar-box-js');
@@ -402,6 +411,9 @@ function eventHandler() {
 		let scrollTop = window.scrollY;
 
 		//it calc window.scrollY
+		if (!boxParent) {
+			return;
+		}
 		let parentTop = boxParent.getBoundingClientRect().top + window.scrollY;
 
 		let lastItemH = sidebarItems[sidebarItems.length - 1].offsetHeight;
@@ -451,13 +463,20 @@ function eventHandler() {
 		});
 		setTimeout(() => {
 			wow.init();
-			wow.show(document.querySelector('.pills-wrap-js'));
+
+			let pillWrap = document.querySelector('.pills-wrap-js');
+			if (pillWrap){
+				wow.show(pillWrap);
+			}
 		}, 1000);
 	};
 
 	//
 	window.addEventListener('wheel', function (evt) {
-		let topNav = document.querySelector(".top-nav")
+		let topNav = document.querySelector(".top-nav");
+		if (!topNav){
+			return
+		}
 		if (evt.deltaY < 0 && evt.deltaY < topNav.offsetHeight ) {
 			topNav.classList.add("show");
 		}
@@ -465,6 +484,102 @@ function eventHandler() {
 			topNav.classList.remove("show");
 		}
 	});
+	//new js
+	let headerAlt = document.querySelector(".sHeaderAlt--js");
+	function calcHeaderAltHeight() {
+		document.documentElement.style.setProperty('--header-alt-h', `${headerAlt.offsetHeight}px`);
+	}
+	if (headerAlt){
+		window.addEventListener('resize', calcHeaderAltHeight, { passive: true });
+		window.addEventListener('scroll', calcHeaderAltHeight, { passive: true });
+		calcHeaderAltHeight();
+	}
+
+	//
+	$('.cModal-inp-js').focus(function (){
+		$('.cModal-inp-box-js').addClass('focus');
+	}).blur(function (){
+		$('.cModal-inp-box-js').removeClass('focus');
+	});
+
+	let cModalInput = document.querySelector('.cModal-inp-js');
+	if (cModalInput){
+		window.addEventListener('resize', changeCModalInputPh, {passive: true});
+		changeCModalInputPh();
+	}
+
+	function changeCModalInputPh(){
+		if (window.matchMedia("(min-width: 768px)").matches){
+			cModalInput.setAttribute('placeholder', cModalInput.getAttribute('data-placeholder-up-md'));
+		}
+		else{
+			cModalInput.setAttribute('placeholder', cModalInput.getAttribute('data-placeholder-down-md'));
+		}
+	}
+	//modal steps
+	//.cModal--js must end with sequence number to use openNextCModal()!!!!!
+
+	$('.open-cModal-js').click(openCModal);
+	$('.open-next-cModal-js').click(openNextCModal);
+	$('.close-cModal-js').click(closeCModals);
+
+	function openCModal(){
+		let modalId = this.getAttribute('data-modal-id');
+		$('body').addClass('fixed2');
+
+		$('.cModal--js').each(function (){
+			if (this === document.querySelector(`.cModal--js[id='${modalId}']`)){
+				$(this).fadeIn(function (){
+					$(this).addClass('active');
+				});
+			}
+			else{
+				$(this).fadeOut(function (){
+					$(this).removeClass('active');
+				});
+			}
+		});
+	}
+	function closeCModals(){
+		$('.cModal--js').each(function (){
+			$(this).fadeOut(function (){
+				$('body').removeClass('fixed2');
+				$(this).removeClass('active');
+			});
+		});
+	}
+	function openNextCModal(){
+		let modalId;
+		$('body').addClass('fixed2');
+
+		$('.cModal--js').each(function (){
+			if ($(this).hasClass('active')){
+				modalId = this.getAttribute('id').split('');
+				modalId[modalId.length - 1] = Number(modalId[modalId.length - 1]) + 1;
+				modalId = modalId.join('');
+			}
+		});
+		let targetModal = document.querySelector(`.cModal--js[id='${modalId}']`);
+		if (targetModal){
+			$('.cModal--js').each(function (){
+				if (this === document.querySelector(`.cModal--js[id='${modalId}']`)){
+					$(this).fadeIn(function (){
+						$(this).addClass('active');
+					});
+				}
+				else{
+					$(this).fadeOut(function (){
+						$(this).removeClass('active');
+					});
+				}
+			});
+		}
+
+	}
+
+
+	//todo
+	// 1 .loaded_hiding (base.scss)
 
 	//end luckyone js
 };

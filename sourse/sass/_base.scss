@@ -30,6 +30,7 @@ html{
 
 body {
 	&.fixed,
+	&.fixed2,
 	&.fancybox-active{
 		.header{ 
 			padding-right: var(--spacing-end);
@@ -87,19 +88,23 @@ body {
 
 	}
 
-	&.fixed {
+	&.fixed,
+	&.fixed2 {
 		overflow: hidden;
 		position: absolute;
 		width: 100%;
 		left: 0;
 		top: 0;
 		z-index: 999;
+	}
 
+	&.fixed{
 		&::before {
 			z-index: 999;
 			opacity: 0.4;
 		}
 	}
+
 }
 
 //.main-wrapper {
@@ -737,9 +742,45 @@ h2{
 }
 //
 body:not(.loaded_hiding):after {
-	--s: 1s;
+	--s: 0s;//!!!! here
 	-webkit-transition: all var(--s) ease-in-out;
 	transition: all var(--s) ease-in-out;
 	-webkit-transform: translateY(-100%);
 	transform: translateY(-100%);
+}
+
+//
+.new-page{
+	.btn{
+		border-radius: rem(8);
+	}
+
+	//
+	.container{
+		//@include media-breakpoint-between()
+		@include media-breakpoint-between(lg, xl){
+			max-width: 966px!important;
+		}
+
+		@include media-breakpoint-down(md){
+			max-width: 546px!important;
+		}
+	}
+
+	.main-wrapper {
+		overflow-x: hidden;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		min-height: 100vh;
+	}
+
+	.section-title{
+		h1, h2, h3, h4, h5, h6{
+			font-family: $default-font;
+			&:after{
+				content: none;
+			}
+		}
+	}
 }

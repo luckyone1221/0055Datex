@@ -1,0 +1,36 @@
+mixin sCalculator(data)
+	// start sCalculator
+	+b.SECTION.sCalculator.section#sCalculator&attributes(attributes)
+		+e.container.container
+			+e.content
+				+e.row.row.align-items-center
+					.col-lg-6
+						+b.section-title.text-center.text-lg-start
+							h1
+								| Калькулятор
+								| стоимости
+								|
+								span.text-danger 1C:ИТС
+							p
+								| Эффективный способ быстро подобрать тариф 1С:ИТС
+								br
+								| и дополнительные сервисы для вашего бизнеса
+							+e.btn.open-cModal-js(data-modal-id='cModalstep1') Подобрать тариф
+					.col-lg-6
+						+e.img
+							img(loading="lazy" src='img/svg/sCalculator-img.svg' alt="")
+			+e.footer
+				+e.f-row.row
+					+sCalculatorItem(1, 'Бесплатные сервисы')
+					+sCalculatorItem(2, 'Доступ к обновлениям')
+					+sCalculatorItem(3, 'Бесплатные сервисы')
+					+sCalculatorItem(4, 'Доступ к обновлениям')
+					+sCalculatorItem(5, 'Поддержка 24/7')
+					+sCalculatorItem(6, 'Доступ к обновлениям')
+	// end sCalculator
+
+mixin sCalculatorItem(imgNum, txt)
+	.col-6.col-md-4.col-lg-2
+		+e.f-img
+			img(loading="lazy" src=`img/svg/sCalculatorItem-${imgNum}.svg` alt="")
+		+e.f-txt=txt

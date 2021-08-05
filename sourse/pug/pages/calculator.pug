@@ -1,0 +1,71 @@
+extends layout/main.pug
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug
+include ../blocks/sOpportunities/_sOpportunities.pug
+include ../blocks/sVersions/_sVersions.pug
+include ../blocks/sApp/_sApp.pug
+include ../blocks/sAdvantage/_sAdvantage.pug
+include ../blocks/sDemonstration/_sDemonstration.pug
+include ../blocks/sClients/_sClients.pug
+include ../blocks/sQuestions/_sQuestions.pug
+include ../blocks/sHeaderAlt/_sHeaderAlt.pug
+include ../blocks/sCalculator/_sCalculator.pug
+include ../blocks/cModal/_cModal.pug
+
+block variables
+	- let  mainPage='new-page'
+	- let  bg= '02-576.png'
+
+block title
+	- let  title= 'title'
+	title= title
+block pagecontent
+	+sHeaderAlt()
+	+sCalculator()
+	+cModal({
+		pbWidth: 1/7,
+		modalId: 'cModalstep1',
+	})
+		.container
+			+e.back-btn-cont
+				+e.back-btn.close-cModal-js
+					+e.b-icon
+						img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+					span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Основной программный продукт, для которого требуется ИТС
+				+e.input-box.cModal-inp-box-js
+					+e.input-wrap
+						+e.INPUT.input.form-control.cModal-inp-js(type="text" name="search" placeholder='Введите название продукта' data-placeholder-down-md='Введите название продукта' data-placeholder-up-md='Введите название продукта или выберите из списка ниже' autocomplete="off")
+						+e.search-btn(type="button")
+							+icon('zoom')
+					+e.options
+						+cModalSearchOption('1С:Бухгалтерия')
+						+cModalSearchOption('1С:Управление нашей фирмой')
+						+cModalSearchOption('1С:Комплексная автоматизация')
+				+e.cards-row.row
+					+cModalCard(1, '1С:Управление торговлей')
+					+cModalCard(2, '1С:Бухгалтерия')
+					+cModalCard(3, '1С:Управление нашей фирмой')
+					+cModalCard(4, '1С:Комплексная автоматизация')
+					+cModalCard(5, '1С:Зарплата и управление персоналом')
+				.text-center
+					+e.btn.open-next-cModal-js(href='#') Продолжить
+	+cModal({
+		pbWidth: 2/7,
+		modalId: 'cModalstep2',
+	})
+
+	//-+footer()
+
+mixin cModalSearchOption(txt)
+	+e.option=txt
+
+mixin cModalCard(imgNum, txt)
+	+e.card-col.col-lg-auto.col-md-4
+		+e.c-item(href="#")
+			+e.c-img
+				img(loading="lazy" src=`img/svg/sCalculatorItem-${imgNum}.svg` alt="")
+			+e.c-txt.text-lg-center=txt

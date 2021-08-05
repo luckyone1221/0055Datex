@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+		<meta name="description" content="о чем страница">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="width=570,  maximum-scale=1 , user-scalable=no" name="viewport">
+		<script>
+			let viewport = document.querySelector("meta[name=viewport]");
+			if (window.innerWidth > 570) viewport.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		</script>
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no">
+<style>body::after { content: '';position: fixed;left: 0;top: 0;width: 100%;z-index: 2000;height: 100%;background-color: #FDFBF9;}</style><link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link href="libs/@fancyapps/fancybox/jquery.fancybox.min.css" rel="stylesheet"/>
+		<link href="libs/animate.css/animate.min.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+	</head>
+	<body class="loaded_hiding new-page" data-bg="02-576.png">
+		<div class="main-wrapper">
+			<!-- start sHeaderAlt-->
+			<header class="sHeaderAlt sHeaderAlt--js" id="sHeaderAlt">
+				<div class="container">
+					<div class="sHeaderAlt__row row align-items-center">
+						<div class="col col-xl-auto"><a class="sHeaderAlt__logo" href="#"><img loading="lazy" src="img/svg/logo.svg" alt=""/></a>
+						</div>
+						<div class="col d-none d-xl-block">
+							<div class="sHeaderAlt__logo-txt">Официальный партнер 1С в Самаре
+							</div>
+						</div>
+						<div class="col-auto">
+							<div class="sHeaderAlt__soc-row row">
+								<div class="col-auto"><a class="sHeaderAlt__soc-item" href="#"><img loading="lazy" src="img/svg/vb.svg" alt=""/></a>
+								</div>
+								<div class="col-auto"><a class="sHeaderAlt__soc-item" href="#"><img loading="lazy" src="img/svg/wa.svg" alt=""/></a>
+								</div>
+								<div class="col-auto"><a class="sHeaderAlt__soc-item" href="#"><img loading="lazy" src="img/svg/tg.svg" alt=""/></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-auto"><a class="sHeaderAlt__tel" href="tel:+78463004840">+7 (846) 300 48 40</a>
+							<div class="sHeaderAlt__shedule">Пн-Пт 9:00 - 18:00
+							</div>
+						</div>
+						<div class="col-auto d-none d-lg-block"><a class="sHeaderAlt__btn link-modal-js" href="#modal-call"><span>Перезвоните мне</span></a>
+						</div>
+						<div class="col-auto d-lg-none"><a class="sHeaderAlt__mob-call" href="tel:+78463004840">
+							<svg class="icon icon-tell ">
+								<use xlink:href="img/svg/sprite.svg#tell"></use>
+							</svg></a>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- end sHeaderAlt-->
+			<!-- start sCalculator-->
+			<section class="sCalculator section" id="sCalculator">
+				<div class="sCalculator__container container">
+					<div class="sCalculator__content">
+						<div class="sCalculator__row row align-items-center">
+							<div class="col-lg-6">
+								<div class="section-title text-center text-lg-start">
+									<h1>
+										Калькулятор
+										стоимости
+										<span class="text-danger">1C:ИТС</span>
+									</h1>
+									<p>Эффективный способ быстро подобрать тариф 1С:ИТС<br/>и дополнительные сервисы для вашего бизнеса</p>
+									<div class="section-title__btn open-cModal-js" data-modal-id="cModalstep1">Подобрать тариф
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="sCalculator__img"><img loading="lazy" src="img/svg/sCalculator-img.svg" alt=""/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sCalculator__footer">
+						<div class="sCalculator__f-row row">
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="sCalculator__f-img"><img loading="lazy" src="img/svg/sCalculatorItem-1.svg" alt=""/>
+								</div>
+								<div class="sCalculator__f-txt">Бесплатные сервисы
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="sCalculator__f-img"><img loading="lazy" src="img/svg/sCalculatorItem-2.svg" alt=""/>
+								</div>
+								<div class="sCalculator__f-txt">Доступ к обновлениям
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="sCalculator__f-img"><img loading="lazy" src="img/svg/sCalculatorItem-3.svg" alt=""/>
+								</div>
+								<div class="sCalculator__f-txt">Бесплатные сервисы
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="sCalculator__f-img"><img loading="lazy" src="img/svg/sCalculatorItem-4.svg" alt=""/>
+								</div>
+								<div class="sCalculator__f-txt">Доступ к обновлениям
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="sCalculator__f-img"><img loading="lazy" src="img/svg/sCalculatorItem-5.svg" alt=""/>
+								</div>
+								<div class="sCalculator__f-txt">Поддержка 24/7
+								</div>
+							</div>
+							<div class="col-6 col-md-4 col-lg-2">
+								<div class="sCalculator__f-img"><img loading="lazy" src="img/svg/sCalculatorItem-6.svg" alt=""/>
+								</div>
+								<div class="sCalculator__f-txt">Доступ к обновлениям
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end sCalculator-->
+			<!-- start cModal-->
+			<section class="cModal cModal--js section" id="cModalstep1">
+				<div class="cModal__proggress-bar" style="width: calc(100% * 0.14285714285714285)">
+				</div>
+				<div class="container">
+					<div class="cModal__back-btn-cont">
+						<div class="cModal__back-btn close-cModal-js">
+							<div class="cModal__b-icon"><img loading="lazy" src="img/svg/chevron-left.svg" alt="">
+							</div><span>Назад</span>
+						</div>
+					</div>
+					<div class="cModal__content">
+						<div class="section-title text-center">
+							<h2>Основной программный продукт, для которого требуется ИТС</h2>
+						</div>
+						<div class="cModal__input-box cModal-inp-box-js">
+							<div class="cModal__input-wrap"><input class="cModal__input form-control cModal-inp-js" type="text" name="search" placeholder="Введите название продукта" data-placeholder-down-md="Введите название продукта" data-placeholder-up-md="Введите название продукта или выберите из списка ниже" autocomplete="off"/>
+								<button class="cModal__search-btn" type="button">
+									<svg class="icon icon-zoom ">
+										<use xlink:href="img/svg/sprite.svg#zoom"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="cModal__options">
+								<div class="cModal__option">1С:Бухгалтерия
+								</div>
+								<div class="cModal__option">1С:Управление нашей фирмой
+								</div>
+								<div class="cModal__option">1С:Комплексная автоматизация
+								</div>
+							</div>
+						</div>
+						<div class="cModal__cards-row row">
+							<div class="cModal__card-col col-lg-auto col-md-4"><a class="cModal__c-item" href="#"><span class="cModal__c-img"><img loading="lazy" src="img/svg/sCalculatorItem-1.svg" alt=""/></span><span class="cModal__c-txt text-lg-center">1С:Управление торговлей</span></a>
+							</div>
+							<div class="cModal__card-col col-lg-auto col-md-4"><a class="cModal__c-item" href="#"><span class="cModal__c-img"><img loading="lazy" src="img/svg/sCalculatorItem-2.svg" alt=""/></span><span class="cModal__c-txt text-lg-center">1С:Бухгалтерия</span></a>
+							</div>
+							<div class="cModal__card-col col-lg-auto col-md-4"><a class="cModal__c-item" href="#"><span class="cModal__c-img"><img loading="lazy" src="img/svg/sCalculatorItem-3.svg" alt=""/></span><span class="cModal__c-txt text-lg-center">1С:Управление нашей фирмой</span></a>
+							</div>
+							<div class="cModal__card-col col-lg-auto col-md-4"><a class="cModal__c-item" href="#"><span class="cModal__c-img"><img loading="lazy" src="img/svg/sCalculatorItem-4.svg" alt=""/></span><span class="cModal__c-txt text-lg-center">1С:Комплексная автоматизация</span></a>
+							</div>
+							<div class="cModal__card-col col-lg-auto col-md-4"><a class="cModal__c-item" href="#"><span class="cModal__c-img"><img loading="lazy" src="img/svg/sCalculatorItem-5.svg" alt=""/></span><span class="cModal__c-txt text-lg-center">1С:Зарплата и управление персоналом</span></a>
+							</div>
+						</div>
+						<div class="text-center"><a class="cModal__btn open-next-cModal-js" href="#">Продолжить</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end cModal-->
+			<!-- start cModal-->
+			<section class="cModal cModal--js section" id="cModalstep2">
+				<div class="cModal__proggress-bar" style="width: calc(100% * 0.2857142857142857)">
+				</div>
+			</section>
+			<!-- end cModal-->
+		</div>
+		<!--  start modals-->
+		<div class="modal-trade modal-win modal-win modal-win--lg" id="modal-trade" style="display: none">
+			<div class="section-title text-center">
+				<h2>Торговля</h2>
+			</div>
+			<div class="modal-trade__sliders">
+				<div class="modal-trade__slider-wrap">
+					<div class="swiper-container modal-trade-slider-js">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+							<div class="swiper-slide">
+								<div class="modal-trade__slide-txt">1. Отгрузка на складе
+								</div><a class="modal-trade__link" href="img/@2x/modal-trade.png" data-fancybox="modalTrade">
+								<!-- picture-->
+								<picture class="modal-trade__img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture--></a>
+							</div>
+						</div>
+					</div>
+					<div class="d-none d-md-block">
+						<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
+							<svg class="icon icon-chevron-left ">
+								<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
+							</svg>
+						</div>
+						<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
+							<svg class="icon icon-chevron-right ">
+								<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
+							</svg>
+						</div>
+					</div>
+				</div>
+				<div class="modal-trade__thumb">
+					<div class="swiper-container modal-trade-thumb-js">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+							<div class="swiper-slide">
+								<!-- picture-->
+								<picture class="modal-trade__thumb-img"> 
+									<source type="image/webp" srcset="img/@2x/webp/modal-trade.webp" media="(min-width:576px)"/>
+									<source type="image/webp" srcset="img/@1x/webp/modal-trade.webp"/>
+									<source type="image/png" srcset="img/@2x/modal-trade.png" media="(min-width:576px)"/>
+									<source type="image/png" srcset="img/@1x/modal-trade.png"/><img src="img/@2x/modal-trade.png" alt="" loading="lazy"/>
+								</picture>
+								<!-- /picture-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-trade__descr">
+				<p>Используйте программу, как бэк-офис для ваших интернет-магазинов. Это отличный помощник для автоматизации операций по оптовым закупкам и продажам товаров и услуг.</p>
+				<p>Если вы владелец магазина продуктов, одежды, спорт товаров, бытовой техники, бутика и прочих розничных точек, 1С:УНФ автоматизирует все хозяйственные операции, включая приемку и передачу товаров на комиссию, планирование продаж по предприятию, по подразделениям, по менеджерам и по категориям номенклатуры, анализируя каждый процесс в колличестве и в денежном выражении.</p>
+			</div>
+			<div class="text-center">
+				<button class="mod-close-btn modal-close-js" type="button">Закрыть</button>
+			</div>
+		</div>
+		<!-- #modal-trade-->
+		<div class="modal-compare modal-win modal-win modal-win--lg" id="modal-compare" style="display: none">
+			<div class="section-title text-center">
+				<h2>Сравнение версий</h2>
+			</div>
+			<div class="modal-compare__tr row">
+				<div class="modal-compare__name-col col-auto">
+				</div>
+				<div class="modal-compare__title-col col">
+					<div class="modal-compare__title">Базовая
+					</div>
+				</div>
+				<div class="modal-compare__title-col col">
+					<div class="modal-compare__title">Профессиональная
+					</div>
+				</div>
+				<div class="modal-compare__title-col col">
+					<div class="modal-compare__title">Пакетная
+					</div>
+				</div>
+			</div>
+			<div class="modal-compare__table">
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Основная функциональность
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Многопользовательский режим работы, в том числе поддержка клиент-серверного варианта работы
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Работа территориально распределенных информационных баз
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Поддержка COM-соединения и Automation-сервера
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Возможность изменения (конфигурирования) прикладного решения
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Учет деятельности нескольких учреждений в единой информационной базе (многофирменный учет)
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">Интеграция с Битрикс
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+				<div class="modal-compare__tr row">
+					<div class="modal-compare__name-col col-auto">В составе имеется дополнительная лицензия на 5 пользователей
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/crossmark.svg" alt=""/>
+						</div>
+					</div>
+					<div class="col">
+						<div class="modal-compare__ball"><img loading="lazy" src="img/svg/checkmark.svg" alt=""/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center">
+				<button class="mod-close-btn modal-close-js" type="button">Закрыть</button>
+			</div>
+		</div>
+		<div class="modal-call modal-win modal-win modal-win--sm" id="modal-call" style="display: none">
+			<div class="section-title text-center">
+				<h4>Заказать звонок</h4>
+			</div>
+			<div class="modal-call__descr text-center">Заполните форму и мы свяжемся с Вами в ближайшее время для уточнения деталей
+			</div>
+			<div class="form-wrap">
+				<form>
+					<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="text" type="text" placeholder="Ваше имя"/>
+					</div>
+					<!-- +e.input-wrap-->
+					<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" name="tel" type="tel" placeholder="Ваш телефон"/>
+					</div>
+					<!-- +e.input-wrap-->
+					<div class="form-wrap__polite">
+						<div class="form-wrap__polite-row row">
+							<div class="col-auto">
+								<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label"></span>
+								</label>
+							</div>
+							<div class="col">
+								<div class="form-wrap__polite-txt"><span>
+										Я согласен на обработку и хранение моих персональных данных в соответствии с
+										</span><a href="#">Условиями.</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-wrap__btn-cont text-center">
+						<button class="form-wrap__btn" type="submit">Отправить
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal-call modal-win modal-win modal-win--sm" id="modal-thanks" style="display: none">
+			<div class="section-title text-center">
+				<h4>Спасибо<br/>за обращение!</h4>
+			</div>
+			<div class="modal-call__descr text-center">Мы свяжемся с Вами в ближайшее время для уточнения деталей
+			</div>
+			<div class="modal-call__close-btn-cont text-center">
+				<button class="mod-close-btn modal-close-js" type="button">Закрыть</button>
+			</div>
+		</div>
+		<!-- end modals-->
+		<!-- modal libs-->
+		<script src="libs/jquery/jquery.min.js"></script>
+		<script src="libs/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
+		<!-- modal libs-->
+		<!-- slider libs-->
+		<script src="libs/swiper/swiper-bundle.min.js"> </script>
+		<!-- /slider libs-->
+		<script src="libs/inputmask/inputmask.min.js"></script>
+		<script src="libs/typeit/typeit.min.js"></script>
+		<!---->
+		<script src="libs/curtainsjs/curtains.umd.min.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script src="libs/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+		<script src="libs/gsap/ScrollToPlugin.min.js"></script>
+		<script src="libs/gsap/EasePack.min.js"></script>
+		<script src="libs/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+		<script src="js/libs.js"></script>
+		<script src="libs/wowjs/wow.min.js"></script>
+		<script src="js/common.js"></script>
+	</body>
+</html>
