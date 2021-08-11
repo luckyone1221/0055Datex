@@ -80,6 +80,11 @@ mixin modal()
 		+e.descr.text-center Мы свяжемся с Вами в ближайшее время для уточнения деталей
 		+e.close-btn-cont.text-center
 			button.mod-close-btn.modal-close-js(type="button") Закрыть
+	+b.modal-more.modal-win.modal-win--sm(id="modal-more" style="display: none")
+		+e.title.text-center.modal-more-title-js.mb-5
+		UL.check-list.modal-more-list-js.mb-4
+		+e.btn--yellow.open-next-cModal-js.modal-more-btn-js(type="button") lalala
+
 	// end modals
 
 mixin tableRow(checked1=true,checked2=true,checked3=true)

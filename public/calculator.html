@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<meta charset="utf-8">
-		<title>title</title>
+		<title>calculator</title>
 		<meta name="description" content="о чем страница">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=570,  maximum-scale=1 , user-scalable=no" name="viewport">
@@ -17,7 +17,7 @@
 		<link href="libs/animate.css/animate.min.css" rel="stylesheet"/>
 		<link href="css/main.min.css" rel="stylesheet"/>
 	</head>
-	<body class="loaded_hiding new-page" data-bg="02-576.png">
+	<body class="loaded_hiding new-page fixed2" data-bg="05-576.png">
 		<div class="main-wrapper">
 			<!-- start sHeaderAlt-->
 			<header class="sHeaderAlt sHeaderAlt--js" id="sHeaderAlt">
@@ -125,10 +125,12 @@
 				<div class="cModal__proggress-bar" style="width: calc(100% * 0.14285714285714285)">
 				</div>
 				<div class="container">
-					<div class="cModal__back-btn-cont">
-						<div class="cModal__back-btn close-cModal-js">
-							<div class="cModal__b-icon"><img loading="lazy" src="img/svg/chevron-left.svg" alt="">
-							</div><span>Назад</span>
+					<div class="cModal__back-btn-cont row align-items-center">
+						<div class="col">
+							<div class="cModal__back-btn close-cModal-js">
+								<div class="cModal__b-icon"><img loading="lazy" src="img/svg/chevron-left.svg" alt="">
+								</div><span>Назад</span>
+							</div>
 						</div>
 					</div>
 					<div class="cModal__content">
@@ -171,8 +173,247 @@
 			</section>
 			<!-- end cModal-->
 			<!-- start cModal-->
-			<section class="cModal cModal--js section" id="cModalstep2">
+			<section class="cModal cModal--js section active" id="cModalstep2">
 				<div class="cModal__proggress-bar" style="width: calc(100% * 0.2857142857142857)">
+				</div>
+				<div class="container">
+					<div class="cModal__back-btn-cont row align-items-center">
+						<div class="col">
+							<div class="cModal__back-btn close-cModal-js">
+								<div class="cModal__b-icon"><img loading="lazy" src="img/svg/chevron-left.svg" alt="">
+								</div><span>Назад</span>
+							</div>
+						</div>
+					</div>
+					<div class="cModal__content">
+						<div class="section-title text-center">
+							<h2>Вашему продукту требуется</h2>
+						</div>
+						<!-- start sNeedCard-->
+						<div class="sNeedCard" id="sNeedCard">
+							<div class="sNeedCard__row row justify-content-center">
+								<div class="col-lg-6">
+									<div class="sNeedCard__item sNeedCard-item-js">
+										<div class="sNeedCard__title sNeedCard-title-js">1С:ИТС Отраслевой 4-й категории
+										</div>
+										<div class="sNeedCard__descr">Подключение ИТС Отраслевой  возможно ТОЛЬКО при наличии договора регулярного сопровождения 1С:ИТС
+										</div>
+										<div class="sNeedCard__main-row row align-items-center">
+											<div class="col-md-auto col-lg-12 order-md-last order-lg-0">
+												<div class="sNeedCard__price-row row justify-content-center">
+													<div class="col-auto">
+														<div class="sNeedCard__price">82 200 ₽
+														</div>
+													</div>
+													<div class="sNeedCard__dicount-col col-auto">
+														<div class="sNeedCard__discount">-10%
+														</div>
+														<div class="sNeedCard__old-price">86 400 ₽
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-auto col-lg-12">
+												<div class="sNeedCard__radio-row row justify-content-center">
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="1С:ИТС Отраслевой 4-й категории" val="3"/><span class="radio-box">3</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="1С:ИТС Отраслевой 4-й категории" val="6"/><span class="radio-box">6</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="1С:ИТС Отраслевой 4-й категории" val="12" checked="checked"/><span class="radio-box">12</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="1С:ИТС Отраслевой 4-й категории" val="24"/><span class="radio-box">24</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="sNeedCard__month col-md-auto col-lg-12 text-center order-md-first order-lg-0">месяцев
+											</div>
+										</div>
+										<div class="sNeedCard__list-cont">
+											<ul class="check-list sNeedCard-list-js">
+												<li>Доступ к обновлениям на портале 1С.</li>
+												<li>Линия консультаций разработчика отраслевых решений, сотрудники которой дадут ответы на вопросы профильного характера.</li>
+												<li>Доступ к базам знаний для отраслевых решений, которые состоят из наиболее часто задаваемых вопросов и ответов на них по функционалу нестандартных конфигураций 1С.</li>
+											</ul><a class="sNeedCard__learn-more sNeedCard-link-js link-modal-js d-none d-xl-inline-block d-xxl-none" href="#modal-more">Подробнее...</a>
+										</div>
+										<div class="sNeedCard__btns-row row">
+											<div class="col-md-auto col-lg-12">
+												<button class="sNeedCard__btn sNeedCard__btn--yellow open-next-cModal-js sNeedCard-btn-js" type="button">Добавить
+												</button>
+											</div>
+											<div class="col-md-auto col-lg-12">
+												<button class="sNeedCard__btn sNeedCard__btn--gray open-next-cModal-js" type="button">Пропустить
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end sNeedCard-->
+					</div>
+				</div>
+			</section>
+			<!-- end cModal-->
+			<!-- start cModal-->
+			<section class="cModal cModal--js section" id="cModalstep3">
+				<div class="cModal__proggress-bar" style="width: calc(100% * 0.42857142857142855)">
+				</div>
+				<div class="container">
+					<div class="cModal__back-btn-cont row align-items-center">
+						<div class="col">
+							<div class="cModal__back-btn close-cModal-js">
+								<div class="cModal__b-icon"><img loading="lazy" src="img/svg/chevron-left.svg" alt="">
+								</div><span>Назад</span>
+							</div>
+						</div>
+						<div class="col-auto"><a class="cModal__compare-btn" href="#"><span class="cModal__com-icon"><img loading="lazy" src="img/svg/compare.svg" alt=""></span><span class="cModal__com-txt">Сравнить версии</span></a>
+						</div>
+					</div>
+					<div class="cModal__content">
+						<div class="section-title text-center">
+							<h2>Выберите тариф 1С:ИТС</h2>
+						</div>
+						<!-- start sNeedCard-->
+						<div class="sNeedCard" id="sNeedCard">
+							<div class="sNeedCard__row row">
+								<div class="col-lg-6">
+									<div class="sNeedCard__item sNeedCard-item-js">
+										<div class="sNeedCard__title sNeedCard-title-js">ИТС ТЕХНО
+										</div>
+										<div class="sNeedCard__descr">Эффективный способ быстро подобрать тариф 1С:ИТС и дополнительные сервисы для вашего бизнеса
+										</div>
+										<div class="sNeedCard__main-row row align-items-center">
+											<div class="col-md-auto col-lg-12 order-md-last order-lg-0">
+												<div class="sNeedCard__price-row row justify-content-center">
+													<div class="col-auto">
+														<div class="sNeedCard__price">17 136 ₽
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-auto col-lg-12">
+												<div class="sNeedCard__radio-row row justify-content-center">
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="ИТС ТЕХНО" val="3"/><span class="radio-box">3</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="ИТС ТЕХНО" val="6"/><span class="radio-box">6</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="ИТС ТЕХНО" val="12" checked="checked"/><span class="radio-box">12</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="ИТС ТЕХНО" val="24"/><span class="radio-box">24</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="sNeedCard__month col-md-auto col-lg-12 text-center order-md-first order-lg-0">месяцев
+											</div>
+										</div>
+										<div class="sNeedCard__list-cont">
+											<ul class="check-list sNeedCard-list-js">
+												<li>Оперативная поддержка пользователей, оказываемая разработчиками Отраслевых ПП</li>
+												<li>Обращение на ЛК разработчика Отраслевого ПП любым из перечисленных способов, который наиболее привычен и удобен для пользователя</li>
+												<li>Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП</li>
+												<li>Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП</li>
+											</ul><a class="sNeedCard__learn-more sNeedCard-link-js link-modal-js d-none d-xl-inline-block d-xxl-none" href="#modal-more">Подробнее...</a>
+										</div>
+										<div class="sNeedCard__btns-row row">
+											<div class="col-md-auto col-lg-12">
+												<button class="sNeedCard__btn sNeedCard__btn--yellow open-next-cModal-js sNeedCard-btn-js" type="button">Выбрать ИТС ТЕХНО
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="sNeedCard__item sNeedCard-item-js">
+										<div class="sNeedCard__title sNeedCard-title-js">ИТС ПРОФ
+										</div>
+										<div class="sNeedCard__descr">Эффективный способ быстро подобрать тариф 1С:ИТС и дополнительные сервисы для вашего бизнеса
+										</div>
+										<div class="sNeedCard__main-row row align-items-center">
+											<div class="col-md-auto col-lg-12 order-md-last order-lg-0">
+												<div class="sNeedCard__price-row row justify-content-center">
+													<div class="col-auto">
+														<div class="sNeedCard__price">33 818 ₽
+														</div>
+													</div>
+													<div class="sNeedCard__dicount-col col-auto">
+														<div class="sNeedCard__discount">-10%
+														</div>
+														<div class="sNeedCard__old-price">39 578 ₽
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-auto col-lg-12">
+												<div class="sNeedCard__radio-row row justify-content-center">
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="ИТС ПРОФ" val="3"/><span class="radio-box">3</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item">
+															<input class="invisible" type="radio" name="ИТС ПРОФ" val="6"/><span class="radio-box">6</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item gifted">
+															<input class="invisible" type="radio" name="ИТС ПРОФ" val="12" checked="checked"/><span class="radio-box">12</span>
+														</label>
+													</div>
+													<div class="col-auto">
+														<label class="radio-item gifted">
+															<input class="invisible" type="radio" name="ИТС ПРОФ" val="24"/><span class="radio-box">24</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="sNeedCard__month col-md-auto col-lg-12 text-center order-md-first order-lg-0">месяцев
+											</div>
+										</div>
+										<div class="sNeedCard__list-cont">
+											<ul class="check-list sNeedCard-list-js">
+												<li>Оперативная поддержка пользователей, оказываемая разработчиками Отраслевых ПП</li>
+												<li>Обращение на ЛК разработчика Отраслевого ПП любым из перечисленных способов, который наиболее привычен и удобен для пользователя</li>
+												<li>Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП</li>
+												<li>Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП</li>
+											</ul><a class="sNeedCard__learn-more sNeedCard-link-js link-modal-js d-none d-xl-inline-block d-xxl-none" href="#modal-more">Подробнее...</a>
+										</div>
+										<div class="sNeedCard__btns-row row">
+											<div class="col-md-auto col-lg-12">
+												<button class="sNeedCard__btn sNeedCard__btn--yellow open-next-cModal-js sNeedCard-btn-js" type="button">Выбрать ИТС ПРОФ
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end sNeedCard-->
+					</div>
 				</div>
 			</section>
 			<!-- end cModal-->
@@ -591,6 +832,13 @@
 			<div class="modal-call__close-btn-cont text-center">
 				<button class="mod-close-btn modal-close-js" type="button">Закрыть</button>
 			</div>
+		</div>
+		<div class="modal-more modal-win modal-win modal-win--sm" id="modal-more" style="display: none">
+			<div class="modal-more__title text-center modal-more-title-js mb-5">
+			</div>
+			<UL class="check-list modal-more-list-js mb-4"></UL>
+			<button class="modal-more__btn modal-more__btn--yellow open-next-cModal-js modal-more-btn-js" type="button">lalala
+			</button>
 		</div>
 		<!-- end modals-->
 		<!-- modal libs-->

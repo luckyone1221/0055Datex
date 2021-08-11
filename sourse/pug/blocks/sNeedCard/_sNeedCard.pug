@@ -1,0 +1,65 @@
+mixin sNeedCard(data)
+	// start sNeedCard
+	+b.sNeedCard#sNeedCard
+		+e.row.row&attributes(attributes)
+			if false
+				+sNeedCardItem({
+					title: '',
+					descr: '',
+					price: '',
+					discount: '',
+					oldPrice: '',
+					radioGroup: '',
+					gifts: '',
+					listItems: [
+						'',
+						'',
+						'',
+						'',
+					],
+				})
+			//-
+			block
+
+	// end sNeedCard
+
+mixin sNeedCardItem(data)
+	.col-lg-6
+		+e.item.sNeedCard-item-js
+			+e.title.sNeedCard-title-js=data.title
+			+e.descr=data.descr
+			+e.main-row.row.align-items-center
+				.col-md-auto.col-lg-12.order-md-last.order-lg-0
+					+e.price-row.row.justify-content-center
+						.col-auto
+							+e.price=data.price
+						if data.discount
+							+e.dicount-col.col-auto
+								+e.discount=data.discount
+								+e.old-price=data.oldPrice
+				.col-md-auto.col-lg-12
+					+e.radio-row.row.justify-content-center
+						+sNeedCardRadio('3', data.radioGroup)
+						+sNeedCardRadio('6', data.radioGroup)
+						if data.gifts
+							+sNeedCardRadio('12', data.radioGroup, 'gifted')(checked)
+							+sNeedCardRadio('24', data.radioGroup, 'gifted')
+						else
+							+sNeedCardRadio('12', data.radioGroup)(checked)
+							+sNeedCardRadio('24', data.radioGroup)
+				+e.month.col-md-auto.col-lg-12.text-center.order-md-first.order-lg-0 месяцев
+			+e.list-cont
+				ul.check-list.sNeedCard-list-js
+					-for (let item of data.listItems)
+						li=item
+				+e.learn-more.sNeedCard-link-js.link-modal-js.d-none.d-xl-inline-block.d-xxl-none(href="#modal-more") Подробнее...
+			+e.btns-row.row
+				block
+
+
+
+mixin sNeedCardRadio(txt, name, addClasses='')
+	.col-auto
+		+b.LABEL.radio-item(class=addClasses)
+			input(type="radio" class="invisible" name=name val=txt)&attributes(attributes)
+			span.radio-box=txt

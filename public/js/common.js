@@ -586,10 +586,23 @@ function eventHandler() {
 				}
 			});
 		}
-	} //todo
+	} //
+
+
+	$('.sNeedCard-link-js').click(function () {
+		let parent = this.closest('.sNeedCard-item-js');
+		let list = parent.querySelector('.sNeedCard-list-js');
+		let title = parent.querySelector('.sNeedCard-title-js');
+		let btn = parent.querySelector('.sNeedCard-btn-js');
+		let modalTitle = document.querySelector('.modal-more-title-js');
+		let modalList = document.querySelector('.modal-more-list-js');
+		let modalBtn = document.querySelector('.modal-more-btn-js');
+		modalTitle.innerHTML = title.innerHTML;
+		modalList.innerHTML = list.innerHTML;
+		modalBtn.innerHTML = btn.innerHTML;
+	}); //todo
 	// 1 .loaded_hiding (base.scss)
 	//end luckyone js
-
 }
 
 ;

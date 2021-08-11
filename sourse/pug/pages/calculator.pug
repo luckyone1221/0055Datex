@@ -12,13 +12,14 @@ include ../blocks/sQuestions/_sQuestions.pug
 include ../blocks/sHeaderAlt/_sHeaderAlt.pug
 include ../blocks/sCalculator/_sCalculator.pug
 include ../blocks/cModal/_cModal.pug
+include ../blocks/sNeedCard/_sNeedCard.pug
 
 block variables
-	- let  mainPage='new-page'
-	- let  bg= '02-576.png'
+	- let  mainPage='new-page fixed2'
+	- let  bg= '05-576.png'
 
 block title
-	- let  title= 'title'
+	- let  title= 'calculator'
 	title= title
 block pagecontent
 	+sHeaderAlt()
@@ -26,13 +27,15 @@ block pagecontent
 	+cModal({
 		pbWidth: 1/7,
 		modalId: 'cModalstep1',
+		addClasses: '',
 	})
 		.container
-			+e.back-btn-cont
-				+e.back-btn.close-cModal-js
-					+e.b-icon
-						img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
-					span Назад
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
 			+e.content
 				+b.section-title.text-center
 					h2 Основной программный продукт, для которого требуется ИТС
@@ -56,8 +59,93 @@ block pagecontent
 	+cModal({
 		pbWidth: 2/7,
 		modalId: 'cModalstep2',
+		addClasses: 'active',
 	})
-
+		.container
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+				//-.col-auto
+					+e.compare-btn(href='#')
+						+e.com-icon
+							img(loading="lazy" src="img/svg/compare.svg" alt="")
+						+e.com-txt Сравнить версии
+			+e.content
+				+b.section-title.text-center
+					h2 Вашему продукту требуется
+				+sNeedCard()(class="justify-content-center")
+					+sNeedCardItem({
+						title: '1С:ИТС Отраслевой 4-й категории',
+						descr: 'Подключение ИТС Отраслевой  возможно ТОЛЬКО при наличии договора регулярного сопровождения 1С:ИТС',
+						price: '82 200 ₽',
+						discount: '-10%',
+						oldPrice: '86 400 ₽',
+						radioGroup: '1С:ИТС Отраслевой 4-й категории',
+						listItems: [
+							'Доступ к обновлениям на портале 1С.',
+							'Линия консультаций разработчика отраслевых решений, сотрудники которой дадут ответы на вопросы профильного характера.',
+							'Доступ к базам знаний для отраслевых решений, которые состоят из наиболее часто задаваемых вопросов и ответов на них по функционалу нестандартных конфигураций 1С.',
+						],
+					})
+						.col-md-auto.col-lg-12
+							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Добавить
+						.col-md-auto.col-lg-12
+							+e.btn--gray.open-next-cModal-js(type="button") Пропустить
+	+cModal({
+		pbWidth: 3/7,
+		modalId: 'cModalstep3',
+		addClasses: '',
+	})
+		.container
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+				.col-auto
+					+e.compare-btn(href='#')
+						+e.com-icon
+							img(loading="lazy" src="img/svg/compare.svg" alt="")
+						+e.com-txt Сравнить версии
+			+e.content
+				+b.section-title.text-center
+					h2 Выберите тариф 1С:ИТС
+				+sNeedCard()
+					+sNeedCardItem({
+						title: 'ИТС ТЕХНО',
+						descr: 'Эффективный способ быстро подобрать тариф 1С:ИТС и дополнительные сервисы для вашего бизнеса',
+						price: '17 136 ₽',
+						radioGroup: 'ИТС ТЕХНО',
+						listItems: [
+							'Оперативная поддержка пользователей, оказываемая разработчиками Отраслевых ПП',
+							'Обращение на ЛК разработчика Отраслевого ПП любым из перечисленных способов, который наиболее привычен и удобен для пользователя',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+						],
+					})
+						.col-md-auto.col-lg-12
+							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Выбрать ИТС ТЕХНО
+					+sNeedCardItem({
+						title: 'ИТС ПРОФ',
+						descr: 'Эффективный способ быстро подобрать тариф 1С:ИТС и дополнительные сервисы для вашего бизнеса',
+						price: '33 818 ₽',
+						discount: '-10%',
+						oldPrice: '39 578 ₽',
+						radioGroup: 'ИТС ПРОФ',
+						gifts: true,
+						listItems: [
+							'Оперативная поддержка пользователей, оказываемая разработчиками Отраслевых ПП',
+							'Обращение на ЛК разработчика Отраслевого ПП любым из перечисленных способов, который наиболее привычен и удобен для пользователя',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+						],
+					})
+						.col-md-auto.col-lg-12
+							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Выбрать ИТС ПРОФ
 	//-+footer()
 
 mixin cModalSearchOption(txt)
