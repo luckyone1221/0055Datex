@@ -24,24 +24,38 @@
   }
   --sPB: #{rem(80)};
 
+  &.centered{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(var(--prog-bar-mb) + var(--prog-bar-h)) !important;
+  }
+  &__container{
+    &--centerd{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  --prog-bar-mb: #{rem(30)};
+  @include media-breakpoint-up(md){
+    --prog-bar-mb: #{rem(27)};
+  }
+  @include media-breakpoint-up(lg){
+    --prog-bar-mb: #{rem(30)};
+  }
+  --prog-bar-h: 0px;
+  @include media-breakpoint-up(xl){
+    --prog-bar-h: 4px;
+  }
+  @include media-breakpoint-up(xxl){
+    --prog-bar-mb: #{rem(54)};
+  }
+  //
   &__proggress-bar{
     background: $primary;
-
-    margin-bottom: rem(30);
-    @include media-breakpoint-up(md){
-      margin-bottom: rem(27);
-    }
-    @include media-breakpoint-up(lg){
-      margin-bottom: rem(30);
-    }
-    @include media-breakpoint-up(xxl){
-      margin-bottom: rem(54);
-    }
-
-    height: 0;
-    @include media-breakpoint-up(xl){
-      height: 4px;
-    }
+    margin-bottom: var(--prog-bar-mb);
+    height: var(--prog-bar-h);
   }
   &__back-btn-cont{
     @include media-breakpoint-up(xxl){
@@ -108,6 +122,12 @@
   }
 
   //
+  &__content{
+    &--center{
+      margin: auto 0;
+    }
+  }
+  //
   &__compare-btn{
     display: flex;
     align-items: center;
@@ -173,6 +193,8 @@
 
       margin-bottom: rem(20);
     }
+
+    //
     p{
       font-size: rem(14);
       @include media-breakpoint-up(xxl){
@@ -434,3 +456,65 @@
   &__{}
   &__{}
 } // end.cModal
+
+//
+.thanks{
+  margin: 0 auto;
+  max-width: 100%;
+
+  width: rem(504);
+  @include media-breakpoint-up(xxl){
+    width: rem(640);
+  }
+  //
+  margin-bottom: rem(53);
+  @include media-breakpoint-up(md){
+    margin-bottom: rem(55);
+  }
+  @include media-breakpoint-up(lg){
+    margin-bottom: rem(18);
+  }
+  @include media-breakpoint-up(xxl){
+    margin-bottom: rem(22);
+  }
+  //
+
+  &__txt{
+    font-size: rem(18);
+    line-height: (22/18);
+    @include media-breakpoint-up(md){
+      font-size: rem(14);
+      line-height: (17/14);
+    }
+    margin-bottom: rem(30);
+    @include media-breakpoint-up(xxl){
+      margin-bottom: rem(40);
+      font-size: rem(16);
+      line-height: (19/16);
+    }
+  }
+  &__btn{
+    @extend .btn;
+    border: none!important;
+    font-weight: 600;
+    line-height: 1.25;
+    min-width: rem(240);
+
+    font-size: rem(20);
+    padding: rem(18.5) rem(20);
+    @include media-breakpoint-up(md){
+      font-size: rem(16);
+      padding: rem(19) rem(30);
+    }
+
+    @include media-breakpoint-up(xxl){
+      font-size: rem(18);
+      padding: rem(24) ;
+    }
+
+    &--warning{
+      @extend .btn-warning;
+    }
+  }
+  &__{}
+}

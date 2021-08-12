@@ -600,7 +600,8 @@ function eventHandler() {
 		modalTitle.innerHTML = title.innerHTML;
 		modalList.innerHTML = list.innerHTML;
 		modalBtn.innerHTML = btn.innerHTML;
-	}); //todo
+	}); //
+	//todo
 	// 1 .loaded_hiding (base.scss)
 	//end luckyone js
 }

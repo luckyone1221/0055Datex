@@ -1,0 +1,25 @@
+mixin sConnects(data)
+	// start sConnects
+	+b.sConnects#sConnects&attributes(attributes)
+		+e.box.text-center
+			+form-wrap
+				+e.descr
+					| Заполните форму и мы свяжемся с Вами в ближайшее время
+					br
+					| для консультации и покупки 1С:ИТС
+				+e.inps
+					if data.tel
+						+input('Введите телефон', 'tel')
+					if data.mail
+						+input('Введите ваш электронный адрес', 'email')
+					+e.btn--warning.open-next-cModal-js(type="submit") Отправить
+				+e.policy
+					| Нажимая на кнопку “Отправить”, Вы соглашетесь с
+					|
+					a(href="#") политикой конфиденциальности
+					|
+					| и
+					|
+					a(href="#") пользовательским соглашением.
+
+	// end sConnects

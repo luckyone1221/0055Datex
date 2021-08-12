@@ -16,10 +16,11 @@ include ../blocks/sNeedCard/_sNeedCard.pug
 include ../blocks/sAddService/_sAddService.pug
 include ../blocks/sPresent/_sPresent.pug
 include ../blocks/sResult/_sResult.pug
+include ../blocks/sConnects/_sConnects.pug
 
 block variables
 	- let  mainPage='new-page fixed2'
-	- let  bg= '07-576.png'
+	- let  bg= '09-576.png'
 
 block title
 	- let  title= 'calculator'
@@ -32,8 +33,8 @@ block pagecontent
 		modalId: 'cModalstep1',
 		addClasses: '',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
@@ -64,8 +65,8 @@ block pagecontent
 		modalId: 'cModalstep2',
 		addClasses: '',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
@@ -102,8 +103,8 @@ block pagecontent
 		modalId: 'cModalstep3',
 		addClasses: '',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
@@ -154,8 +155,8 @@ block pagecontent
 		modalId: 'cModalstep4',
 		addClasses: '',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
@@ -171,8 +172,8 @@ block pagecontent
 		modalId: 'cModalstep5',
 		addClasses: '',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
@@ -188,8 +189,8 @@ block pagecontent
 		modalId: 'cModalstep6',
 		addClasses: '',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
@@ -203,16 +204,57 @@ block pagecontent
 	+cModal({
 		pbWidth: 7 / 7,
 		modalId: 'cModalstep7',
-		addClasses: 'active',
+		addClasses: 'centered',
 	})
-		.container
-			+e.back-btn-cont.row.align-items-center
+		+e.container--centerd.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
 				.col
 					+e.back-btn.close-cModal-js
 						+e.b-icon
 							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
 						span Назад
-			+e.content
+			+e.content--center
+				+b.section-title.text-center
+					h2 Связаться по телефону
+				+sConnects({
+					tel: true,
+				})
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep8',
+		addClasses: 'centered',
+	})
+		+e.container--centerd.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content--center
+				+b.section-title.text-center
+					h2 Связаться по почте
+				+sConnects({
+					mail: true,
+				})
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep9',
+		addClasses: 'active centered',
+	})
+		+e.container--centerd.container
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content--center
+				+b.section-title.text-center
+					h2 Спасибо за обращение!
+				+b.thanks.text-center
+					+e.txt Мы свяжемся с Вами в ближайшее время.
+					+e.btn--warning.close-cModal-js(type="button") Вернуться в начало
 
 	//-+footer()
 

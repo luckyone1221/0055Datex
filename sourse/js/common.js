@@ -591,7 +591,9 @@ function eventHandler() {
 		modalTitle.innerHTML = title.innerHTML;
 		modalList.innerHTML = list.innerHTML;
 		modalBtn.innerHTML = btn.innerHTML;
-	})
+	});
+
+	//
 
 
 	//todo
