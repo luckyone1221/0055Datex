@@ -1,0 +1,30 @@
+mixin sPresent(data)
+	// start sPresent
+	+b.sPresent#sPresent&attributes(attributes)
+		+e.row.row
+			+sPresentItem(1, 'Ситилинк, Золотое Яблоко, Kitchenland')
+				span Подарочный сертификат
+				|
+				br.d-md-none.d-lg-block
+				span.text-primary на сумму 1 000 ₽
+			+sPresentItem(2)
+				| Услуги программиста 1С
+				|
+				br.d-md-none.d-lg-block
+				span.text-primary на 2 часа
+			+sPresentItem(3)
+				| Подключение/продление ОФД для ККТ
+				|
+				span.text-primary на 15 месяцев
+	// end sPresent
+
+mixin sPresentItem(imgNum, descr='Описание')
+	+e.col.col-lg-4
+		+e.item
+			+e.img
+				img(loading="lazy" src=`img/svg/sPresent-${imgNum}.svg` alt="")
+			+e.content.text-lg-center
+				+e.title
+					block
+				+e.descr=descr
+				+e.chose-btn.open-cModal-js(type="button") Выбрать

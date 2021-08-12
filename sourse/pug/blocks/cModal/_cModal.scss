@@ -170,7 +170,29 @@
         font-size: rem(48) !important;
         max-width: rem(820);
       }
+
+      margin-bottom: rem(20);
     }
+    p{
+      font-size: rem(14);
+      @include media-breakpoint-up(xxl){
+        font-size: rem(16);
+      }
+      line-height: 1.25;
+      color: $gray-640;
+
+      @include media-breakpoint-up(md){
+        max-width: 90%;
+      }
+      @include media-breakpoint-up(lg){
+        max-width: 100%;
+      }
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
   }
   &__input-box{
     @include mt();

@@ -156,7 +156,7 @@ body {
 	}
 
 	& > *:last-child{
-		margin-bottom: 0;
+		margin-bottom: 0!important;
 	}
 }
 
@@ -477,14 +477,8 @@ iframe {
 	/* Цвет фона */
 }
 
-
-
+//
 .custom-scroll {
-	scrollbar-color: var(--bs-primary)  transparent;
-
-	scrollbar-width: thin;
-	scrollbar-color: var(--bs-primary)  transparent;
-
 	&::-webkit-scrollbar-thumb {
 		opacity: 1;
 		display: block
@@ -492,27 +486,26 @@ iframe {
 
 	&::-webkit-scrollbar-track {
 		border: none;
-		background-color: transparent;
+		background-color: $gray-430;
 		border-color: transparent;
 		-webkit-box-shadow: none;
+		border-radius: rem(10);
 	}
 
 	&::-webkit-scrollbar {
-		width: 4px;
+		width: 5px;
 		height: 2px;
 		background-color: transparent;
-		// border-right: 2px;
-		/* or add it to the track */
 		border-color: transparent;
 		opacity: 0;
 		-webkit-box-shadow: none;
-
+		border-radius: rem(10);
 	}
 
 	/* Add a thumb */
 	&::-webkit-scrollbar-thumb {
-		background: var(--bs-primary) ;
-		border-radius: 2.5px;
+		background: $gray-420;
+		border-radius: rem(10);
 	}
 
 	&::-webkit-scrollbar-button {
@@ -784,3 +777,4 @@ body:not(.loaded_hiding):after {
 		}
 	}
 }
+//

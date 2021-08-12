@@ -13,10 +13,13 @@ include ../blocks/sHeaderAlt/_sHeaderAlt.pug
 include ../blocks/sCalculator/_sCalculator.pug
 include ../blocks/cModal/_cModal.pug
 include ../blocks/sNeedCard/_sNeedCard.pug
+include ../blocks/sAddService/_sAddService.pug
+include ../blocks/sPresent/_sPresent.pug
+include ../blocks/sResult/_sResult.pug
 
 block variables
 	- let  mainPage='new-page fixed2'
-	- let  bg= '05-576.png'
+	- let  bg= '07-576.png'
 
 block title
 	- let  title= 'calculator'
@@ -59,7 +62,7 @@ block pagecontent
 	+cModal({
 		pbWidth: 2/7,
 		modalId: 'cModalstep2',
-		addClasses: 'active',
+		addClasses: '',
 	})
 		.container
 			+e.back-btn-cont.row.align-items-center
@@ -146,6 +149,71 @@ block pagecontent
 					})
 						.col-md-auto.col-lg-12
 							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Выбрать ИТС ПРОФ
+	+cModal({
+		pbWidth: 4/7,
+		modalId: 'cModalstep4',
+		addClasses: '',
+	})
+		.container
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Добавьте сервисы
+					p Представленные ниже сервисы помогут вам усовершенствовать и модернезировать ваши бизнес-процессы
+				+sAddService()
+	+cModal({
+		pbWidth: 5/7,
+		modalId: 'cModalstep5',
+		addClasses: '',
+	})
+		.container
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Выберите подарок
+				+sPresent()
+	//-make this
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep6',
+		addClasses: '',
+	})
+		.container
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Что вам удалось собрать
+				+sResult()
+	//-
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep7',
+		addClasses: 'active',
+	})
+		.container
+			+e.back-btn-cont.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+
 	//-+footer()
 
 mixin cModalSearchOption(txt)
