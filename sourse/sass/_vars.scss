@@ -279,7 +279,7 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-// scss-docs-start spacer-variables-maps
+// scss-docs-start spacer-variaFles-maps
 $spacer: 1rem !default;
 $spacers: (0: 0,
   1: $spacer / 4,
@@ -344,6 +344,7 @@ $grid-breakpoints: (xs: 0,
   xl: 1250px,
   xxl: 1400px,
   base: 1700px) !default;
+//base used to be 1700
 // scss-docs-end grid-breakpoints
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");

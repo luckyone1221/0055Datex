@@ -80,10 +80,68 @@ mixin modal()
 		+e.descr.text-center Мы свяжемся с Вами в ближайшее время для уточнения деталей
 		+e.close-btn-cont.text-center
 			button.mod-close-btn.modal-close-js(type="button") Закрыть
-	+b.modal-more.modal-win.modal-win--sm(id="modal-more" style="display: none")
+	//-
+	+b.modal-more.modal-win.modal-win--new(id="modal-more" style="display: none")
 		+e.title.text-center.modal-more-title-js.mb-5
 		UL.check-list.modal-more-list-js.mb-4
 		+e.btn--yellow.open-next-cModal-js.modal-more-btn-js(type="button") lalala
+	//-
+	+b.modal-descr.modal-win.modal-win--new.text-center(id="modal-descr" style="display: none")
+		//.modal-descr__img--bordered
+		+e.img
+			img(loading="lazy" src='img/svg/modal-descr.svg' alt="")
+		+e.title 1С:Подпись
+		+e.price 600 ₽
+		+e.UL.list.text-start
+			li Электронная подпись для ЭДО или регистрации онлайн-касс в ФНС «1С:Подпись» — простой способ получить сертификат усиленной квалифицированной электронной подписи от удостоверяющего центра ООО «НПЦ 1С» для обмена электронными документами или регистрации онлайн-кассы в ФНС.
+			li Подготовить и отправить заявление на выпуск сертификата можно непосредственно из программы 1С. Инструкция.
+			li Партнер фирмы «1С» поможет подготовить комплект заявительных документов и передаст их в удостоверяющий центр. После обработки заявления партнером сертификат будет доставлен на ваше рабочее место.
+			li Сертификат могут получить только юридические лица или индивидуальные предприниматели. Сертификат, полученный с помощью «1С:Подписи», не предназначен для отправки регламентированной отчетности в контролирующие органы в электронном виде и для участия в торгах на электронных торговых площадках.
+		+e.btn.modal-close-js(type="button") Закрыть
+	+b.modal-versions.modal-win.modal-win--new.modal-win--fullscreen(id="modal-versions" style="display: none")
+		.container
+			+e.close.modal-close-js
+				span.d-none.d-md-inline Закрыть
+				+e.c-btn
+					img(loading="lazy" src="img/svg/close.svg" alt="")
+			+e.big-title.text-center Сравнение версий
+			+e.table
+				+e.tr--head.row
+					+e.name-col.col-auto.pt-0.text-start
+						+e.title Функционал
+					.col.pt-0
+						+e.title ТЕХНО
+					.col.pt-0
+						+e.title ПРОФ
+				+tableRow2('Обновление программ и конфигурация 1С:Предприятие')
+				+tableRow2('Методические материалы и рекомендации')
+				+tableRow2('Справочники', false, true)
+				+tableRow2('Линия консультаций “1С” по телефону или электронной почте', false, true)
+				+tableRow2('1С:ЭДО')
+					.col до 50 пакетов документов в месяц, свыше – 10 руб. за комплект
+					.col до 100 пакетов документов в месяц, свыше – 10 руб. за комплект
+				+tableRow2('1С:Отчетность')
+					+tableRowBall(false, '-alt')
+					.col 1 юр. лицо, неограниченное количество обособленных подразделений для сдачи ФНС
+				+tableRow2('1С:Предприятие 8 через интернет', false, true)
+				+tableRow2('1С:Линк')
+					+tableRowBall(false, '-alt')
+					.col 1 туннель с подключением 2 баз
+				+tableRow2('1С:Облачный архив')
+					+tableRowBall(false, '-alt')
+					.col 20 гб для хранения резервных копий
+				+tableRow2('1С:Контрагент')
+					+tableRowBall(false, '-alt')
+					.col 7200 автозаполнений по ИНН или наименованию + 360 "Досье контрагента"
+				+tableRow2('1С:Подпись')
+					+tableRowBall(false, '-alt')
+					.col Одна лицензия для оформление квалифицированного сертификата
+				+tableRow2('1С:Номенклатура')
+					.col 5 000 карточек
+					.col 10 000 карточек
+				+tableRow2('Обновление платформы и типовых конфигураций "1С:Предприятие", диагностика состояния информационной базы, создание архивной копии силами квалифицированных специалистов', false, true)
+			.text-center
+				+e.btn.modal-close-js(type="button") Закрыть
 
 	// end modals
 
@@ -95,13 +153,22 @@ mixin tableRow(checked1=true,checked2=true,checked3=true)
 		+tableRowBall(checked2)
 		+tableRowBall(checked3)
 
-mixin tableRowBall(checked)
+mixin tableRow2(name, checked1=true,checked2=true)
+	+e.tr.row
+		+e.name-col.col-auto=name
+		if block
+			block
+		else
+			+tableRowBall(checked1, '-alt')
+			+tableRowBall(checked2, '-alt')
+
+mixin tableRowBall(checked, mod='')
 	.col
 		+e.ball
 			if checked
-				img(loading="lazy" src="img/svg/checkmark.svg" alt="")
+				img(loading="lazy" src=`img/svg/checkmark${mod}.svg` alt="")
 			else
-				img(loading="lazy" src="img/svg/crossmark.svg" alt="")
+				img(loading="lazy" src=`img/svg/crossmark${mod}.svg` alt="")
 
 mixin tradeSlide()
 	.swiper-slide

@@ -24,7 +24,7 @@
 		@include media-breakpoint-up(xl){
 			padding: rem(24);
 		}
-			@include media-breakpoint-up(xxl){
+		@include media-breakpoint-up(base){
 			padding: rem(40);
 			border-radius: rem(12);
 		}
@@ -49,13 +49,14 @@
 		}
 		@include media-breakpoint-up(xxl){
 			font-size: rem(32);
+		}
+		@include media-breakpoint-up(base){
 			margin-bottom: rem(20);
 		}
 	}
 	&__descr{
 		line-height: 1.25;
 		color: $gray-640;
-
 
 		text-align: center;
 		font-size: rem(18);
@@ -69,9 +70,14 @@
 			text-align: center;
 			margin-bottom: rem(22);
 		}
+		@include media-breakpoint-up(xl){
+			margin-bottom: rem(12);
+		}
 		@include media-breakpoint-up(xxl){
 			font-size: rem(16);
-			margin-bottom: rem(20);
+		}
+		@include media-breakpoint-up(base){
+			margin-bottom: rem(12);
 		}
 	}
 	&__main-row{
@@ -354,7 +360,10 @@
 		@include media-breakpoint-up(lg){
 			margin-bottom: rem(14.5px);
 		}
-		@include media-breakpoint-up(xxl){
+		@include media-breakpoint-up(xl){
+			margin-bottom: rem(8);
+		}
+		@include media-breakpoint-up(base){
 			margin-bottom: rem(12);
 		}
 		&:last-child{

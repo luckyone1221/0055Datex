@@ -4,35 +4,38 @@ mixin sAddService(data)
 		+e.box
 			+e.row.row
 				-for(var i=0; i < 2; i++)
-					+sAddServiceItem(1, '1С:Предприятие через Интернет', '563 ₽')(checked)
-					+sAddServiceItem(2, '1С:Подпись', '600 ₽')
-					+sAddServiceItem(3, '1С-Отчетность', '1 500 ₽')
-					+sAddServiceItem(4, '1С-ОФД', '298 ₽', 'bordered')
-					+sAddServiceItem(5, '1С-Финконтроль', '6 000 ₽')
-					+sAddServiceItem(6, '1С-Коннект', '4 900 ₽')
-					+sAddServiceItem(7, '1С-ЭТП', '900 ₽')
-					+sAddServiceItem(8, '1С:Номенклатура', '10 000 ₽')
-					+sAddServiceItem(9, '1С:ПАРК Риски', '3 000 ₽')
-					+sAddServiceItem(10, '1С-Товары', '375 ₽')
-					+sAddServiceItem(11, 'Информационная система 1С:ИТС', '16 800 ₽')
-					+sAddServiceItem(12, '1С-ABBYY Comprator', '5 990 ₽')
+					+sAddServiceItemCol(1, '1С:Предприятие через Интернет', '563 ₽')(checked)
+					+sAddServiceItemCol(2, '1С:Подпись', '600 ₽')
+					+sAddServiceItemCol(3, '1С-Отчетность', '1 500 ₽')
+					+sAddServiceItemCol(4, '1С-ОФД', '298 ₽', 'bordered')
+					+sAddServiceItemCol(5, '1С-Финконтроль', '6 000 ₽')
+					+sAddServiceItemCol(6, '1С-Коннект', '4 900 ₽')
+					+sAddServiceItemCol(7, '1С-ЭТП', '900 ₽')
+					+sAddServiceItemCol(8, '1С:Номенклатура', '10 000 ₽')
+					+sAddServiceItemCol(9, '1С:ПАРК Риски', '3 000 ₽')
+					+sAddServiceItemCol(10, '1С-Товары', '375 ₽')
+					+sAddServiceItemCol(11, 'Информационная система 1С:ИТС', '16 800 ₽')
+					+sAddServiceItemCol(12, '1С-ABBYY Comprator', '5 990 ₽')
 		.text-center
 			+e.btn.open-cModal-js(type="button") Продолжить
 
 	// end sAddService
 
-mixin sAddServiceItem(imgNum, title, price, addImgClasses)
+mixin sAddServiceItemCol(imgNum, title, price, addImgClasses)
 	.col-lg-6
-		+e.item
-			+e.item-row.row.align-items-center
-				.col-auto
-					+e.img(class=addImgClasses)
-						img(loading="lazy" src=`img/svg/sAddService-${imgNum}.svg` alt="")
-				.col
-					+e.title=title
-					+e.price=price
-				.col-auto
-					+sAddServiceChb()&attributes(attributes)
+		+sAddServiceItem(imgNum, title, price, addImgClasses)&attributes(attributes)
+
+mixin sAddServiceItem(imgNum, title, price, addImgClasses)
+	+b.add-item
+		+e.row.row.align-items-center
+			.col-auto
+				+e.img.link-modal-js(href="#modal-descr" class=addImgClasses)
+					img(loading="lazy" src=`img/svg/sAddService-${imgNum}.svg` alt="")
+			.col
+				+e.title.link-modal-js(href="#modal-descr")=title
+				+e.price=price
+			.col-auto
+				+sAddServiceChb()&attributes(attributes)
 
 mixin sAddServiceChb()
 	+b.LABEL.cross-chb

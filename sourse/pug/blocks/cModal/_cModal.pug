@@ -1,8 +1,272 @@
+include ../sContent/_sContent.pug
+include ../sContact/_sContact.pug
+include ../sOpportunities/_sOpportunities.pug
+include ../sVersions/_sVersions.pug
+include ../sApp/_sApp.pug
+include ../sAdvantage/_sAdvantage.pug
+include ../sDemonstration/_sDemonstration.pug
+include ../sClients/_sClients.pug
+include ../sQuestions/_sQuestions.pug
+include ../sHeaderAlt/_sHeaderAlt.pug
+include ../sCalculator/_sCalculator.pug
+include ../sNeedCard/_sNeedCard.pug
+include ../sAddService/_sAddService.pug
+include ../sPresent/_sPresent.pug
+include ../sResult/_sResult.pug
+include ../sConnects/_sConnects.pug
+
 mixin cModal(data)
 	// start cModal
-	+b.SECTION.cModal--js.section(id=data.modalId class=data.addClasses)&attributes(attributes)
+	+b.SECTION.cModal--js.section.overflow-hidden(id=data.modalId class=data.addClasses)&attributes(attributes)
 		if data.pbWidth
 			+e.proggress-bar(style=`width: calc(100% * ${data.pbWidth})`)
 		block
-
 	// end cModal
+
+mixin cModal1(cModalClasses='')
+	+cModal({
+		pbWidth: 1 / 7,
+		modalId: 'cModalstep1',
+		addClasses: `${cModalClasses}`,
+	})
+		+e.container.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Основной программный продукт, для которого требуется ИТС
+				+e.input-box.cModal-inp-box-js
+					+e.input-wrap
+						+e.INPUT.input.form-control.cModal-inp-js(type="text" name="search" placeholder='Введите название продукта' data-placeholder-down-md='Введите название продукта' data-placeholder-up-md='Введите название продукта или выберите из списка ниже' autocomplete="off")
+						+e.search-btn(type="button")
+							+icon('zoom')
+					+e.options
+						+cModalSearchOption('1С:Бухгалтерия')
+						+cModalSearchOption('1С:Управление нашей фирмой')
+						+cModalSearchOption('1С:Комплексная автоматизация')
+				+e.cards-row.row
+					+cModalCard(1, '1С:Управление торговлей')
+					+cModalCard(2, '1С:Бухгалтерия')
+					+cModalCard(3, '1С:Управление нашей фирмой')
+					+cModalCard(4, '1С:Комплексная автоматизация')
+					+cModalCard(5, '1С:Зарплата и управление персоналом')
+				.text-center
+					+e.btn.open-next-cModal-js(href='#') Продолжить
+mixin cModal2(cModalClasses='')
+	+cModal({
+		pbWidth: 2 / 7,
+		modalId: 'cModalstep2',
+		addClasses: `${cModalClasses}`,
+	})
+		+e.container.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+				//-.col-auto
+					+e.compare-btn.paint-bg-js.link-modal-js(href='#modal-versions')
+						+e.com-icon
+							img(loading="lazy" src="img/svg/compare.svg" alt="")
+						+e.com-txt Сравнить версии
+			+e.content
+				+b.section-title.text-center
+					h2 Вашему продукту требуется
+				+sNeedCard()(class="justify-content-center")
+					+sNeedCardItem({
+						title: '1С:ИТС Отраслевой 4-й категории',
+						descr: 'Подключение ИТС Отраслевой  возможно ТОЛЬКО при наличии договора регулярного сопровождения 1С:ИТС',
+						price: '82 200 ₽',
+						discount: '-10%',
+						oldPrice: '86 400 ₽',
+						radioGroup: '1С:ИТС Отраслевой 4-й категории',
+						listItems: [
+							'Доступ к обновлениям на портале 1С.',
+							'Линия консультаций разработчика отраслевых решений, сотрудники которой дадут ответы на вопросы профильного характера.',
+							'Доступ к базам знаний для отраслевых решений, которые состоят из наиболее часто задаваемых вопросов и ответов на них по функционалу нестандартных конфигураций 1С.',
+						],
+					})
+						.col-md-auto.col-lg-12
+							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Добавить
+						.col-md-auto.col-lg-12
+							+e.btn--gray.open-next-cModal-js(type="button") Пропустить
+mixin cModal3(cModalClasses='')
+	+cModal({
+		pbWidth: 3 / 7,
+		modalId: 'cModalstep3',
+		addClasses: `${cModalClasses}`,
+	})
+		+e.container.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+				.col-auto
+					+e.compare-btn.paint-bg-js.link-modal-js(href='#modal-versions')
+						+e.com-icon
+							img(loading="lazy" src="img/svg/compare.svg" alt="")
+						+e.com-txt Сравнить версии
+				//-.col-auto
+					a.btn.btn-primary.link-modal-js(href='#modal-descr') modal-descr
+			+e.content
+				+b.section-title.text-center
+					h2 Выберите тариф 1С:ИТС
+				+sNeedCard()
+					+sNeedCardItem({
+						title: 'ИТС ТЕХНО',
+						descr: 'Эффективный способ быстро подобрать тариф 1С:ИТС и дополнительные сервисы для вашего бизнеса',
+						price: '17 136 ₽',
+						radioGroup: 'ИТС ТЕХНО',
+						listItems: [
+							'Оперативная поддержка пользователей, оказываемая разработчиками Отраслевых ПП',
+							'Обращение на ЛК разработчика Отраслевого ПП любым из перечисленных способов, который наиболее привычен и удобен для пользователя',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+						],
+					})
+						.col-md-auto.col-lg-12
+							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Выбрать ИТС ТЕХНО
+					+sNeedCardItem({
+						title: 'ИТС ПРОФ',
+						descr: 'Эффективный способ быстро подобрать тариф 1С:ИТС и дополнительные сервисы для вашего бизнеса',
+						price: '33 818 ₽',
+						discount: '-10%',
+						oldPrice: '39 578 ₽',
+						radioGroup: 'ИТС ПРОФ',
+						gifts: true,
+						listItems: [
+							'Оперативная поддержка пользователей, оказываемая разработчиками Отраслевых ПП',
+							'Обращение на ЛК разработчика Отраслевого ПП любым из перечисленных способов, который наиболее привычен и удобен для пользователя',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+							'Усиленный контроль фирмы «1С» за качеством сопровождения Отраслевых ПП',
+						],
+					})
+						.col-md-auto.col-lg-12
+							+e.btn--yellow.open-next-cModal-js.sNeedCard-btn-js(type="button") Выбрать ИТС ПРОФ
+mixin cModal4(cModalClasses='')
+	+cModal({
+		pbWidth: 4 / 7,
+		modalId: 'cModalstep4',
+		addClasses: `${cModalClasses}`,
+	})
+		+e.container.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Добавьте сервисы
+					p Представленные ниже сервисы помогут вам усовершенствовать и модернезировать ваши бизнес-процессы
+				+sAddService()
+mixin cModal5(cModalClasses='')
+	+cModal({
+		pbWidth: 5 / 7,
+		modalId: 'cModalstep5',
+		addClasses: `${cModalClasses}`,
+	})
+		+e.container.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Выберите подарок
+				+sPresent()
+mixin cModal6(cModalClasses='')
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep6',
+		addClasses: `${cModalClasses} pb-xl-xxl-0`,
+	})
+		+e.container.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content
+				+b.section-title.text-center
+					h2 Что вам удалось собрать
+				+sResult()
+mixin cModal7(cModalClasses='')
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep7',
+		addClasses: `${cModalClasses} centered`
+	})
+		+e.container--centerd.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content--center
+				+b.section-title.text-center
+					h2 Связаться по телефону
+				+sConnects({
+					tel: true,
+				})
+mixin cModal8(cModalClasses='')
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep8',
+		addClasses: `${cModalClasses} centered`
+	})
+		+e.container--centerd.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content--center
+				+b.section-title.text-center
+					h2 Связаться по почте
+				+sConnects({
+					mail: true,
+				})
+
+mixin cModal9(cModalClasses='')
+	+cModal({
+		pbWidth: 7 / 7,
+		modalId: 'cModalstep9',
+		addClasses: `${cModalClasses} centered`,
+	})
+		+e.container--centerd.container.cModal-container-js
+			+e.back-btn-cont.back-btn-cont-js.row.align-items-center
+				.col
+					+e.back-btn.close-cModal-js
+						+e.b-icon
+							img(loading="lazy" src='img/svg/chevron-left.svg' alt="")
+						span Назад
+			+e.content--center
+				+b.section-title.text-center
+					h2 Спасибо за обращение!
+				+b.thanks.text-center
+					+e.txt Мы свяжемся с Вами в ближайшее время.
+					+e.btn--warning.close-cModal-js(type="button") Вернуться в начало
+
+mixin cModalSearchOption(txt)
+	+e.option=txt
+
+mixin cModalCard(imgNum, txt)
+	+e.card-col.col-lg-auto.col-md-4
+		+e.c-item(href="#")
+			+e.c-img
+				img(loading="lazy" src=`img/svg/sCalculatorItem-${imgNum}.svg` alt="")
+			+e.c-txt.text-lg-center=txt

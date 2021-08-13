@@ -537,6 +537,7 @@ function eventHandler() {
 	$('.close-cModal-js').click(closeCModals);
 
 	function openCModal() {
+		fixOverflowBug();
 		let modalId = this.getAttribute('data-modal-id');
 		$('body').addClass('fixed2');
 		$('.cModal--js').each(function () {
@@ -553,6 +554,7 @@ function eventHandler() {
 	}
 
 	function closeCModals() {
+		fixOverflowBug();
 		$('.cModal--js').each(function () {
 			$(this).fadeOut(function () {
 				$('body').removeClass('fixed2');
@@ -562,6 +564,7 @@ function eventHandler() {
 	}
 
 	function openNextCModal() {
+		fixOverflowBug();
 		let modalId;
 		$('body').addClass('fixed2');
 		$('.cModal--js').each(function () {
@@ -601,7 +604,39 @@ function eventHandler() {
 		modalList.innerHTML = list.innerHTML;
 		modalBtn.innerHTML = btn.innerHTML;
 	}); //
-	//todo
+
+	$('.paint-bg-js').click(function () {
+		$('.fancybox-bg').addClass('body-bg');
+		$('.fancybox-slide--html').addClass('p-0');
+	}); //fix css bug
+
+	window.addEventListener('resize', fixOverflowBug, {
+		passive: true
+	});
+	fixOverflowBug();
+	window.setTimeout(fixOverflowBug, 50);
+	window.setInterval(fixOverflowBug, 100);
+
+	function fixOverflowBug() {
+		let activeModal = document.querySelector('.cModal--js.active');
+		if (!activeModal) return;
+		let container = activeModal.querySelector('.cModal-container-js');
+		if (!container) return;
+
+		if (window.innerHeight > container.getBoundingClientRect().height) {
+			$(activeModal).addClass('overflow-hidden');
+		} else {
+			$(activeModal).removeClass('overflow-hidden');
+		}
+	}
+
+	$('.cModal-container-js').each(function () {
+		if (window.innerHeight > this.getBoundingClientRect().height) {
+			$(this).find('.cModal--js').addClass('overflow-hidden');
+		} else {
+			$(this).find('.cModal--js').removeClass('overflow-hidden');
+		}
+	}); //todo
 	// 1 .loaded_hiding (base.scss)
 	//end luckyone js
 }

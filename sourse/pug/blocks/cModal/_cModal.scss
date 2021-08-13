@@ -19,13 +19,19 @@
   --sPT: 0;
 
   --sTPB: #{rem(30)};
+  @include media-breakpoint-between(xl, xxl){
+    --sTPB: #{rem(24)};
+  }
   @include media-breakpoint-up(xxl){
     --sTPB: #{rem(40)};
   }
   --sPB: #{rem(80)};
 
   &.centered{
-    display: flex;
+    display: none;
+    &.active{
+      display: flex;
+    }
     flex-direction: column;
     padding-bottom: calc(var(--prog-bar-mb) + var(--prog-bar-h)) !important;
   }

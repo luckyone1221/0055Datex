@@ -23,11 +23,15 @@ block variables
 	- let  bg= '08-576.png'
 
 block title
-	- let  title= 'calculator'
+	- let  title= 'modal-menu'
 	title= title
 block pagecontent
 	+sHeaderAlt()
-	+sCalculator()
+	.section
+		.container
+			.row.gy-3.gx-3
+				-for(var i=1; i <=9; i++)
+					+demoBtn(i)
 	+cModal1('')
 	+cModal2('')
 	+cModal3('')
@@ -37,3 +41,7 @@ block pagecontent
 	+cModal7('')
 	+cModal8('')
 	+cModal9('')
+
+mixin demoBtn(id)
+	.col-auto
+		.btn.btn-primary.open-cModal-js(data-modal-id=`cModalstep${id}`)=`модальное окно ${id}`
