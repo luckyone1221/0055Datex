@@ -31,7 +31,7 @@
 
 		overflow-y: auto;
 
-		height: calc(var(--bs-gutter-y) * 8 + #{rem(80)}* 8);
+		height: calc(var(--bs-gutter-y) * 7 + #{rem(80)}* 7);
 		@include media-breakpoint-up(md){
 			height: calc(var(--bs-gutter-y) * 8 + #{rem(64)}* 8);
 		}
@@ -45,6 +45,9 @@
 			height: calc(var(--bs-gutter-y) * 4 + #{rem(80)}* 4);
 		}
 		@include media-breakpoint-up(base){
+			height: calc(var(--bs-gutter-y) * 5 + #{rem(80)}* 5);
+		}
+		@media (min-height: 1070px){
 			height: calc(var(--bs-gutter-y) * 6 + #{rem(80)}* 6);
 		}
 
@@ -130,7 +133,7 @@
 
 	padding: rem(14);
 	@include media-breakpoint-up(md){
-		padding: rem(11) rem(14);
+		padding: rem(9) rem(14);
 	}
 	@include media-breakpoint-up(xxl){
 		padding: rem(14);

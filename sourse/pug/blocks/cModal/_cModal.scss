@@ -375,7 +375,7 @@
     align-items: center;
     background: $white;
 
-    padding: rem(30);
+    padding: rem(20) rem(24);
     border-radius: rem(12);
     @include media-breakpoint-up(md){
       padding: rem(12) rem(20);

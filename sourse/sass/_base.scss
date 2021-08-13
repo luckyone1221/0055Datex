@@ -735,7 +735,7 @@ h2{
 }
 //
 body:not(.loaded_hiding):after {
-	--s: 0s;//!!!! here
+	--s: .3s;//!!!! here
 	-webkit-transition: all var(--s) ease-in-out;
 	transition: all var(--s) ease-in-out;
 	-webkit-transform: translateY(-100%);
@@ -784,6 +784,7 @@ body:not(.loaded_hiding):after {
 		opacity: 1!important;
 	}
 }
+
 //
 .pb-xl-xxl-0{
 	@include media-breakpoint-between(xl,xxl){

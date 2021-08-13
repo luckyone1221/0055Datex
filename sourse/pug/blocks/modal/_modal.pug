@@ -107,7 +107,7 @@ mixin modal()
 			+e.big-title.text-center Сравнение версий
 			+e.table
 				+e.tr--head.row
-					+e.name-col.col-auto.pt-0.text-start
+					+e.name-col.col-md-auto.pt-0.text-start.d-none.d-md-block
 						+e.title Функционал
 					.col.pt-0
 						+e.title ТЕХНО
@@ -155,7 +155,7 @@ mixin tableRow(checked1=true,checked2=true,checked3=true)
 
 mixin tableRow2(name, checked1=true,checked2=true)
 	+e.tr.row
-		+e.name-col.col-auto=name
+		+e.name-col.col-md-auto=name
 		if block
 			block
 		else

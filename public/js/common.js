@@ -622,23 +622,23 @@ function eventHandler() {
 		if (!activeModal) return;
 		let container = activeModal.querySelector('.cModal-container-js');
 		if (!container) return;
+		let progBar = activeModal.querySelector('.proggress-bar-js');
+		let style = progBar.currentStyle || window.getComputedStyle(progBar);
+		let progBarMb = style.marginBottom.match(/\d/g);
+		progBarMb = Number(progBarMb.join(""));
+		let realHeight = container.getBoundingClientRect().height + progBarMb;
+		console.log(window.innerHeight, realHeight);
 
-		if (window.innerHeight > container.getBoundingClientRect().height) {
+		if (window.innerHeight > realHeight) {
+			activeModal.style = '';
 			$(activeModal).addClass('overflow-hidden');
 		} else {
 			$(activeModal).removeClass('overflow-hidden');
 		}
-	}
-
-	$('.cModal-container-js').each(function () {
-		if (window.innerHeight > this.getBoundingClientRect().height) {
-			$(this).find('.cModal--js').addClass('overflow-hidden');
-		} else {
-			$(this).find('.cModal--js').removeClass('overflow-hidden');
-		}
-	}); //todo
+	} //todo
 	// 1 .loaded_hiding (base.scss)
 	//end luckyone js
+
 }
 
 ;

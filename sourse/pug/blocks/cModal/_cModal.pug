@@ -19,7 +19,7 @@ mixin cModal(data)
 	// start cModal
 	+b.SECTION.cModal--js.section.overflow-hidden(id=data.modalId class=data.addClasses)&attributes(attributes)
 		if data.pbWidth
-			+e.proggress-bar(style=`width: calc(100% * ${data.pbWidth})`)
+			+e.proggress-bar.proggress-bar-js(style=`width: calc(100% * ${data.pbWidth})`)
 		block
 	// end cModal
 

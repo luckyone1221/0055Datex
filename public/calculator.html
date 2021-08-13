@@ -3,15 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<title>calculator</title>
-		<meta name="description" content="о чем страница">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta content="width=570,  maximum-scale=1 , user-scalable=no" name="viewport">
+		<meta name="description" content="о чем страница">
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=570,   maximum-scale=1 , user-scalable=0, shrink-to-fit=no">
 		<script>
 			let viewport = document.querySelector("meta[name=viewport]");
-			if (window.innerWidth > 570) viewport.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-		</script>
-		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no">
-<style>body::after { content: '';position: fixed;left: 0;top: 0;width: 100%;z-index: 2000;height: 100%;background-color: #FDFBF9;}</style><link rel="preconnect" href="https://fonts.gstatic.com">
+			var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			if (is_safari) {
+				//- alert(navigator.userAgent);
+				function w() {
+					this.outerWidth > 570
+									? viewport.content = "width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+									: viewport.content = "width=570,   maximum-scale=1 , user-scalable=0, shrink-to-fit=no"
+					//- alert(this.outerWidth + ', '+  viewport.content);
+				}
+			
+				w();
+				window.addEventListener('resize', () => w(), {passive: true});
+			}
+		</script><style>body::after { content: '';position: fixed;left: 0;top: 0;width: 100%;z-index: 2000;height: 100%;background-color: #FDFBF9;}</style><link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<link href="libs/@fancyapps/fancybox/jquery.fancybox.min.css" rel="stylesheet"/>
 		<link href="libs/animate.css/animate.min.css" rel="stylesheet"/>
@@ -122,7 +133,7 @@
 			<!-- end sCalculator-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden" id="cModalstep1">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 0.14285714285714285)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 0.14285714285714285)">
 				</div>
 				<div class="cModal__container container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -174,7 +185,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden" id="cModalstep2">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 0.2857142857142857)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 0.2857142857142857)">
 				</div>
 				<div class="cModal__container container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -268,7 +279,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden" id="cModalstep3">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 0.42857142857142855)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 0.42857142857142855)">
 				</div>
 				<div class="cModal__container container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -419,7 +430,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden" id="cModalstep4">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 0.5714285714285714)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 0.5714285714285714)">
 				</div>
 				<div class="cModal__container container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -436,7 +447,7 @@
 							<p>Представленные ниже сервисы помогут вам усовершенствовать и модернезировать ваши бизнес-процессы</p>
 						</div>
 						<!-- start sAddService-->
-						<div class="sAddService section" id="sAddService">
+						<div class="sAddService" id="sAddService">
 							<div class="sAddService__box">
 								<div class="sAddService__row row">
 									<div class="col-lg-6">
@@ -933,7 +944,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden" id="cModalstep5">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 0.7142857142857143)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 0.7142857142857143)">
 				</div>
 				<div class="cModal__container container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -1006,7 +1017,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden pb-xl-xxl-0" id="cModalstep6">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 1)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 1)">
 				</div>
 				<div class="cModal__container container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -1022,7 +1033,7 @@
 							<h2>Что вам удалось собрать</h2>
 						</div>
 						<!-- start sResult-->
-						<section class="sResult section" id="sResult">
+						<section class="sResult" id="sResult">
 							<div>
 								<!--| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae cumque iste perspiciatis. Dicta facere impedit maiores natus, omnis porro quo. Ab adipisci aliquid culpa deserunt doloribus ducimus eveniet explicabo facere fugiat in ipsam mollitia nemo neque nihil perspiciatis quia quibusdam quo rem repellat repudiandae, sed soluta sunt temporibus tenetur veniam voluptatem voluptatibus. Alias aliquid amet assumenda, beatae culpa dignissimos doloribus ea est ex explicabo maxime minima molestiae, officia officiis quasi quia quibusdam, quod repellat sapiente sunt suscipit temporibus voluptatum. Accusamus atque autem commodi consequatur deleniti eaque fuga fugiat itaque iure, minus, nesciunt nostrum quo vitae? Aliquam architecto eaque facere harum impedit, iure necessitatibus quis repellendus sed. Adipisci aut ipsa odit officia quis? Atque itaque maiores nemo, pariatur possimus quae recusandae sequi suscipit! Alias assumenda corporis, cum delectus dignissimos eligendi in ipsam iure, laudantium maxime nemo nesciunt nostrum quibusdam quis quod soluta suscipit velit veritatis vero voluptatem? Animi assumenda nostrum obcaecati odit porro quaerat recusandae! Accusantium doloremque incidunt praesentium repellat suscipit! Adipisci ipsa maxime nisi, perspiciatis quae quisquam quod repellendus. Alias aspernatur fuga maiores maxime nemo nostrum obcaecati officiis saepe tempore voluptate! Ab eligendi natus porro quasi recusandae sunt unde? Magnam, nam, sequi. A aperiam architecto assumenda, consequuntur cum cupiditate debitis, distinctio dolore dolores enim et eum eveniet ipsum iure molestiae mollitia officiis quas qui quibusdam sunt suscipit tempore veritatis, voluptate voluptatibus voluptatum! Consequatur dolorem doloremque eligendi excepturi facilis id repellendus repudiandae sed soluta tempora. Accusamus ad adipisci dolorem doloremque impedit ipsam magni maxime perspiciatis quisquam, repellendus repudiandae ullam voluptates. Atque beatae doloremque dolores doloribus est eum exercitationem facere hic iusto labore magni molestiae, nihil non nostrum pariatur porro quae quidem quos reiciendis, repellat sit ut vel veritatis vero voluptates. Aperiam at blanditiis corporis delectus doloribus eos est expedita, in itaque labore, molestiae nam quaerat quasi quod repellendus. A ab accusamus aliquid aperiam architecto assumenda blanditiis commodi cupiditate dignissimos dolor eius error est excepturi fuga id illum iusto labore minima minus, modi molestias officia praesentium quasi qui, quod recusandae rerum saepe temporibus totam vel. Culpa iste nobis odit, omnis quaerat repellat veritatis? Aliquam aliquid cum deserunt dolorem dolorum ducimus enim eos esse expedita facilis id illo illum ipsa itaque, laudantium maxime, minima neque nostrum odit officia officiis omnis pariatur quaerat quam quasi quibusdam ratione saepe sapiente sunt voluptas? Beatae consequatur excepturi exercitationem hic soluta? Cumque excepturi ipsam sint. Alias cumque molestias nam natus neque quisquam sunt tempora unde veniam. Adipisci aliquid at consequatur dignissimos distinctio ea ipsam, iure laudantium magnam natus officia omnis provident, quam soluta suscipit tempore temporibus voluptatem! Error eveniet laborum quasi ratione sapiente? A adipisci aperiam aut autem consectetur consequatur consequuntur corporis culpa cum deserunt dignissimos distinctio dolore dolores dolorum eius ex harum hic in iste necessitatibus nemo neque numquam officiis omnis, quia sunt tempore unde vel voluptatem voluptatibus! Assumenda consectetur consequuntur dolorum ea eveniet, inventore laboriosam magni minus modi neque nesciunt officia quasi similique, tenetur vel, vitae voluptas. Amet cum eveniet magni perferendis placeat reprehenderit sunt. Labore minus, quidem. Eaque facere praesentium recusandae. Aperiam architecto aspernatur assumenda, blanditiis cumque deleniti distinctio dolorem eos ex illum iure maiores minus nam natus nihil odio officia officiis omnis optio, pariatur perferendis provident quasi quos rerum temporibus veritatis vero voluptates! Aliquam blanditiis cumque error et officiis porro quibusdam reiciendis voluptas. Consequatur cum cupiditate debitis dicta dignissimos eos ex impedit inventore laboriosam laborum nihil, officia pariatur quasi ratione soluta. A animi architecto culpa cum doloribus, explicabo facere id incidunt ipsam ipsum iste itaque labore libero maiores maxime nam nesciunt nihil nobis omnis perferendis perspiciatis porro possimus reiciendis sint veniam vero voluptatem voluptatum! Amet consequatur debitis eligendi hic odit perferendis, quos vel? Ab ad aliquid aspernatur at autem corporis debitis distinctio dolores dolorum earum eos eveniet ex fugiat id laborum, laudantium nihil non officia pariatur praesentium quam quia quod recusandae rerum sint vero voluptatem voluptatum. Asperiores culpa deserunt dolores molestias nam, nihil omnis voluptas! Adipisci aliquam architecto assumenda atque aut autem culpa deleniti dicta eius error est et excepturi expedita facilis harum hic iste iure labore maiores minus molestiae nisi nobis non nostrum officia officiis omnis pariatur quas quis, repellat saepe sequi sint vel voluptate voluptatem voluptates voluptatum! Asperiores ducimus ea, enim, et excepturi labore laboriosam maiores modi nam nemo neque quia recusandae, reiciendis repellendus similique suscipit voluptates? Delectus doloremque ducimus eos ex modi non quas quis. A assumenda aut culpa dignissimos dolore ducimus eaque earum error, excepturi exercitationem facere fuga id ipsa iusto laudantium maiores modi nobis placeat quae quibusdam quis quod reiciendis repellendus sapiente sed temporibus veniam voluptatem? Dolorum eos facilis iusto obcaecati quibusdam rerum tenetur ullam? Alias architecto aspernatur aut delectus, distinctio dolorum esse ex facere facilis iure minus neque optio quas rerum, saepe tempora totam veritatis vitae, voluptate voluptatum! Delectus, esse laboriosam quas sint totam ullam velit! A accusamus deleniti distinctio dolores ea earum ipsam laudantium obcaecati, repellendus reprehenderit rerum sed temporibus velit. Ad adipisci at atque dicta ducimus eveniet facilis illum, inventore ipsum, laboriosam laborum laudantium magnam molestiae neque nihil nisi numquam porro praesentium quis quisquam sequi similique tenetur totam, ullam ut vel vero. Ad animi architecto aspernatur commodi cum cupiditate delectus dicta distinctio dolore dolorem doloribus ea, exercitationem explicabo illum in ipsum laudantium magni mollitia nam nemo nihil non nostrum nulla numquam obcaecati odio officiis optio qui quo ratione recusandae rem repellendus similique sit suscipit ullam, vel. Corporis esse, inventore laboriosam, laborum laudantium minus natus numquam officia officiis placeat praesentium ratione sapiente suscipit. Consectetur inventore molestiae sit. Accusantium adipisci beatae distinctio, dolores ducimus enim explicabo facere fugit illum laborum natus possimus praesentium quisquam quos, reprehenderit rerum, sint soluta velit voluptas voluptatem? Accusamus alias aliquam aliquid, amet assumenda aut consectetur distinctio ea est ex explicabo impedit ipsam labore laudantium magnam necessitatibus nesciunt nobis odio officiis pariatur perferendis quod quos recusandae rem sapiente, sed soluta tempora temporibus tenetur ut velit, vero vitae voluptates. A asperiores blanditiis dolorem fuga maiores quod repellat repudiandae. Ab aliquam architecto dicta, dolor expedita ratione sed tempore temporibus vitae voluptates! Asperiores ducimus exercitationem ipsa maxime, non nostrum, omnis praesentium quia quos, sint soluta temporibus!-->
 							</div>
@@ -1348,7 +1359,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden centered" id="cModalstep7">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 1)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 1)">
 				</div>
 				<div class="cModal__container cModal__container--centerd container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -1394,7 +1405,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden centered" id="cModalstep8">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 1)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 1)">
 				</div>
 				<div class="cModal__container cModal__container--centerd container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -1440,7 +1451,7 @@
 			<!-- end cModal-->
 			<!-- start cModal-->
 			<section class="cModal cModal--js section overflow-hidden centered" id="cModalstep9">
-				<div class="cModal__proggress-bar" style="width: calc(100% * 1)">
+				<div class="cModal__proggress-bar proggress-bar-js" style="width: calc(100% * 1)">
 				</div>
 				<div class="cModal__container cModal__container--centerd container cModal-container-js">
 					<div class="cModal__back-btn-cont back-btn-cont-js row align-items-center">
@@ -1915,7 +1926,7 @@
 				</div>
 				<div class="modal-versions__table">
 					<div class="modal-versions__tr modal-versions__tr--head row">
-						<div class="modal-versions__name-col col-auto pt-0 text-start">
+						<div class="modal-versions__name-col col-md-auto pt-0 text-start d-none d-md-block">
 							<div class="modal-versions__title">Функционал
 							</div>
 						</div>
@@ -1929,7 +1940,7 @@
 						</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">Обновление программ и конфигурация 1С:Предприятие
+						<div class="modal-versions__name-col col-md-auto">Обновление программ и конфигурация 1С:Предприятие
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/checkmark-alt.svg" alt=""/>
@@ -1941,7 +1952,7 @@
 						</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">Методические материалы и рекомендации
+						<div class="modal-versions__name-col col-md-auto">Методические материалы и рекомендации
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/checkmark-alt.svg" alt=""/>
@@ -1953,7 +1964,7 @@
 						</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">Справочники
+						<div class="modal-versions__name-col col-md-auto">Справочники
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -1965,7 +1976,7 @@
 						</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">Линия консультаций “1С” по телефону или электронной почте
+						<div class="modal-versions__name-col col-md-auto">Линия консультаций “1С” по телефону или электронной почте
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -1977,13 +1988,13 @@
 						</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:ЭДО
+						<div class="modal-versions__name-col col-md-auto">1С:ЭДО
 						</div>
 						<div class="col">до 50 пакетов документов в месяц, свыше – 10 руб. за комплект</div>
 						<div class="col">до 100 пакетов документов в месяц, свыше – 10 руб. за комплект</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Отчетность
+						<div class="modal-versions__name-col col-md-auto">1С:Отчетность
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -1992,7 +2003,7 @@
 						<div class="col">1 юр. лицо, неограниченное количество обособленных подразделений для сдачи ФНС</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Предприятие 8 через интернет
+						<div class="modal-versions__name-col col-md-auto">1С:Предприятие 8 через интернет
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -2004,7 +2015,7 @@
 						</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Линк
+						<div class="modal-versions__name-col col-md-auto">1С:Линк
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -2013,7 +2024,7 @@
 						<div class="col">1 туннель с подключением 2 баз</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Облачный архив
+						<div class="modal-versions__name-col col-md-auto">1С:Облачный архив
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -2022,7 +2033,7 @@
 						<div class="col">20 гб для хранения резервных копий</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Контрагент
+						<div class="modal-versions__name-col col-md-auto">1С:Контрагент
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -2031,7 +2042,7 @@
 						<div class="col">7200 автозаполнений по ИНН или наименованию + 360 "Досье контрагента"</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Подпись
+						<div class="modal-versions__name-col col-md-auto">1С:Подпись
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>
@@ -2040,13 +2051,13 @@
 						<div class="col">Одна лицензия для оформление квалифицированного сертификата</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">1С:Номенклатура
+						<div class="modal-versions__name-col col-md-auto">1С:Номенклатура
 						</div>
 						<div class="col">5 000 карточек</div>
 						<div class="col">10 000 карточек</div>
 					</div>
 					<div class="modal-versions__tr row">
-						<div class="modal-versions__name-col col-auto">Обновление платформы и типовых конфигураций &quot;1С:Предприятие&quot;, диагностика состояния информационной базы, создание архивной копии силами квалифицированных специалистов
+						<div class="modal-versions__name-col col-md-auto">Обновление платформы и типовых конфигураций &quot;1С:Предприятие&quot;, диагностика состояния информационной базы, создание архивной копии силами квалифицированных специалистов
 						</div>
 						<div class="col">
 							<div class="modal-versions__ball"><img loading="lazy" src="img/svg/crossmark-alt.svg" alt=""/>

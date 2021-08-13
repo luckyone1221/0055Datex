@@ -20,7 +20,7 @@
 	&__item{
 		background: $white;
 
-		padding: rem(55) rem(30) rem(30);
+		padding: rem(20) rem(24);
 		@include media-breakpoint-up(md){
 			padding: rem(24) rem(35) rem(25);
 		}
@@ -120,7 +120,7 @@
 		color: $gray-640;
 
 		font-size: rem(18);
-		margin-bottom: rem(30);
+		margin-bottom: rem(15);
 		min-height: calc(#{rem(18)} * 1.25 * 2);
 		@include media-breakpoint-up(md){
 			font-size: rem(14);
@@ -145,7 +145,7 @@
 		line-height: 1.25;
 
 		font-size: rem(18);
-		padding: rem(15);
+		padding: rem(14);
 		min-width: rem(225);
 		@include media-breakpoint-up(md){
 			font-size: rem(14);
